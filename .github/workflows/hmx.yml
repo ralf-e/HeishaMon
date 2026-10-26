@@ -17,6 +17,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Sketch preparation exports the reviewed upstream base commit.
+          fetch-depth: 0
       - uses: arduino/setup-arduino-cli@v2
       - name: Python and C++ regression checks
         run: |
