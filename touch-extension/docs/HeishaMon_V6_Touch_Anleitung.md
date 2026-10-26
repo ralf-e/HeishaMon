@@ -1,7 +1,9 @@
 # HeishaMon V6 - Touchdisplay-Erweiterung
 ## Entwicklungsstand 0.1.0-dev.7 / Hardware Rev.0.6 | 26.10.2026
 
-**Lieferstatus:** Quellstand dev.7 mit dekodierter Modellanzeige, Geräteinfo und zwei Kopf-Schaltflächen. Gezielte C++-, Integrations- und Vorschauprüfungen sind bestanden; ein vollständiger ESP32-Build und Hardwaretests von dev.7 stehen aus. Die erfolgreiche dev.6-BIN bleibt separat als vorheriger Stand erhalten und enthält die Modellanzeige nicht.
+**Lieferstatus:** dev.7 mit Modellanzeige, Geräteinfo und zwei Kopf-Schaltflächen wurde im [HMX-Actions-Lauf 40380596372](https://github.com/ralf-e/HeishaMon/actions/runs/40380596372) auf Commit bfc89046e7ac04ee628347f56f0198b0bbca997f erfolgreich für ESP32-S3 gebaut. Regressionstests und Artefakt-Upload waren erfolgreich. Hardwaretests stehen aus; Entwicklungsstand ohne Hardwarefreigabe.
+
+**Fork-Aufbau:** Alle relativen Pfade dieser Anleitung beziehen sich auf `touch-extension/`, sofern nicht ausdrücklich anders angegeben. In der bestehenden Arbeitskopie ist das `D:/ChatGPT_CODEX/HeishaMon/fork/touch-extension`. Die Originalquellen liegen daneben im Repository unter `HeishaMon/`; der integrierte Build-Sketch wird erst erzeugt. [Fork- und Update-Anleitung](Fork_Workflow.md).
 
 ## 1. Ziel und festgelegter Aufbau
 
@@ -24,7 +26,7 @@ Ethernet bleibt optional: Ein Zwischenadapter führt die W5500-Anschlüsse durch
 | Betriebsartenlogik | Implementiert, C++-Zustandsprüfungen vorhanden |
 | Integrationsprüfungen | 6 automatische Tests bestanden |
 | C++-Policy | clangd-Prüfung der constexpr-Assertions: 0 Fehler |
-| Echter ESP32-S3-Build | dev.6 erfolgreich; dev.7 benötigt neuen lokalen Build mit Core 3.3.12 |
+| Echter ESP32-S3-Build | dev.7 mit Core 3.3.12 erfolgreich auf GitHub Actions; Hardwaretest ausstehend |
 | V6-Steckerpositionen | Durchgangsprüfung am vorhandenen Board erforderlich |
 | Panelinitialisierung / Touchachsen | Am realen Display zu bestätigen |
 | Ethernet und Display gleichzeitig | Quellcode dafür ausgelegt; Hardwaretest ausstehend |
@@ -34,7 +36,7 @@ Die Vorschau ist eine Layout- und Bedienvorschau mit Beispieldaten. Sie ist kein
 
 ## 3. Architektur und Updatefähigkeit
 
-Die Originalfunktionen für Protokolldecodierung, MQTT, Weboberfläche, Regeln, Dallas und S0 bleiben als Upstream-Dateien erhalten. Die Erweiterung liest vorhandene Daten und nutzt vorhandene Sendesperren. Nur HeishaMon.ino und gpio.cpp enthalten Integrationsanbindungen.
+Die Originalfunktionen für Protokolldecodierung, MQTT, Weboberfläche, Regeln, Dallas und S0 bleiben als Upstream-Dateien erhalten. Die Erweiterung liest vorhandene Daten und nutzt vorhandene Sendesperren. Nur im erzeugten Build-Sketch erhalten HeishaMon.ino und gpio.cpp Integrationsanbindungen; die offiziellen Quellen im Repository bleiben unverändert.
 
 | Datei | Aufgabe |
 | --- | --- |
@@ -47,7 +49,7 @@ Die Originalfunktionen für Protokolldecodierung, MQTT, Weboberfläche, Regeln, 
 | tests/test_integration.py | Idempotenz, Ankerprüfung, Schutz lokaler Änderungen |
 | tests/policy_compile.cpp | C++-Assertions für Betriebsarten, Zeitüberlauf und Seiten |
 | upstream-reference/tree.json | Herkunft und Original-Blob-Hashes |
-| firmware/HeishaMon/ | Vollständiger vorbereiteter Sketch |
+| firmware/HeishaMon/ | Erzeugter Build-Sketch, nicht versioniert |
 
 Das Installationsskript kontrolliert alle benötigten Anker vor der ersten Änderung. Fehlt ein Anker oder kommt er mehrfach vor, bricht es ab. Bei erneutem Aufruf auf einer fertigen Integration prüft es die gespeicherten Datei-Hashes. Lokal geänderte Dateien werden nicht still überschrieben. Der Upstream-Code wird nicht per unscharfer Suche zusammengeführt.
 
@@ -245,7 +247,7 @@ python tools/update_model_table.py --commit TATSAECHLICHER_UPSTREAM_COMMIT --che
 
 TATSAECHLICHER_UPSTREAM_COMMIT durch die überprüfte vollständige Commit-Kennung ersetzen. Der Generator akzeptiert alternativ --source mit einem anderen lokalen Dateipfad. Er prüft 10 Kennungsbytes pro Zeile und eindeutige Tabellen-IDs; doppelte Signaturen werden im Katalog ausgewiesen und von der Anzeige als mehrdeutig behandelt. Er erzeugt die C++-Tabelle und docs/model_catalogue.json gemeinsam.
 
-3. Änderungen prüfen, Integrationsdateien synchronisieren, Tests und neuen ESP32-Build ausführen. Ein bloßer Austausch der Markdown-Datei auf der SD-Karte oder im ESP aktualisiert die kompilierte Tabelle nicht. Die Integration nimmt neue Module über tools/apply_extension.py mit; veränderte installierte Dateien werden weiterhin nicht ungeprüft überschrieben.
+3. Änderungen prüfen, mit tools/prepare_firmware.py den Build-Sketch neu erzeugen, Tests und neuen ESP32-Build ausführen. Ein bloßer Austausch der Markdown-Datei auf der SD-Karte oder im ESP aktualisiert die kompilierte Tabelle nicht. Die Integration nimmt neue Module über tools/apply_extension.py mit; veränderte installierte Dateien werden weiterhin nicht ungeprüft überschrieben.
 4. Wenn sich die Firmwarebasis ändert, HMX_UPSTREAM_COMMIT in hmx_config.h auf den tatsächlich integrierten Basisstand setzen. Der Commit der Modelltabelle wird unabhängig davon vom Generator eingetragen.
 
 ## 12. Touchbedienung und Datenqualität
@@ -294,33 +296,40 @@ Die Pinidentifikation ist eine vorgesehene Aufgabe am realen Gerät. Der fehlend
 
 ### 14.1 Welcher Weg ist gemeint?
 
-Der bestehende lokale Build verwendet Arduino CLI, nicht die grafische Arduino IDE. CLI und IDE verwenden den ESP32-Arduino-Core samt Compiler. GitHub Actions führt den CLI-Build auf einem Linux-Rechner bei GitHub aus. Alle drei Wege erzeugen eine Application-BIN; deren Installation erfolgt danach über das vorhandene HeishaMon-Webinterface.
+Am einfachsten ist der vorhandene GitHub-Workflow **HMX ESP32-S3 build**: Er prüft und kompiliert auf GitHub und stellt BIN sowie Manifest als Download bereit. Lokal sind dafür kein Compiler und keine IDE nötig. Arduino CLI und Arduino IDE 2 bleiben Alternativen für eigene Builds.
 
 | Weg | Auf dem eigenen Rechner benötigt | Ergebnis |
 | --- | --- | --- |
-| Windows / Arduino CLI | Python 3, Node.js LTS, Arduino CLI | Benannte BIN in output/firmware |
-| Arduino IDE 2 | Arduino IDE, Bibliotheken; Python für das beiliegende Paketierungsskript | Exportierte BIN, anschließend mit MD5 benannt |
-| GitHub Actions | GitHub-Konto, Browser; GitHub Desktop für den Projekt-Upload | Download-Artefakt mit BIN und Manifest |
+| GitHub Actions (einfacher Einstieg) | GitHub-Konto und Browser | Artefakt-ZIP mit BIN und Manifest; siehe 14.7 |
+| Windows / Arduino CLI | Git, Python 3, Arduino CLI und Bibliotheken; Node.js für Vorschautests | Benannte BIN und Manifest unter touch-extension/output/firmware |
+| Arduino IDE 2 | Git, Python 3, Arduino IDE und Bibliotheken | Application-BIN im Sketch-Exportordner; anschließend paketieren |
 
-Zum Kompilieren und Exportieren muss die V6 nicht per USB angeschlossen sein. Ein Port wird erst beim seriellen Hochladen benötigt; hier wird anschließend das Webinterface benutzt. Die IDE-Schaltfläche Hochladen ist daher nicht Teil dieses Ablaufs.
+Zum Kompilieren und Exportieren muss die V6 nicht per USB angeschlossen sein. Für ein Update bei passender Partitionierung wird anschließend das HeishaMon-Webinterface verwendet.
 
-**Stand dieser Anleitung:** dev.7 enthält die neue Modellanzeige und Kopf-Schaltflächen. Der vollständige Buildversuch vom 26.10.2026 erkennt ESP32-Core 3.3.12, scheitert aber in der Agent-Ausführungsumgebung beim Compilerstart mit dem bekannten DLL-Fehler. dev.7 muss daher noch außerhalb dieser Umgebung neu gebaut werden. Der vorangegangene dev.6-Stand wurde vom Anwender erfolgreich mit Core 4.0.0-alpha1 gebaut; diese alte BIN enthält die neue Modellanzeige noch nicht. IDE-, Actions- und Hardwaretests von dev.7 sind nicht nachgewiesen.
+**Nachgewiesener Stand:** dev.7 wurde mit ESP32-Core 3.3.12 im [HMX-Actions-Lauf 40380596372](https://github.com/ralf-e/HeishaMon/actions/runs/40380596372) erfolgreich gebaut. Der frühere lokale Compilerstartfehler betrifft die damalige Windows-Ausführungsumgebung. Hardwaretests stehen weiterhin aus.
 
 ### 14.2 Gemeinsame Vorbereitung und richtige Dateien
 
-1. Das vollständige Projekt-ZIP in einen eigenen Ordner entpacken, zum Beispiel D:\ChatGPT_CODEX\HeishaMon. Nicht direkt innerhalb des ZIP arbeiten.
-2. In diesem Hauptordner müssen README.md und die Unterordner firmware, extension, tools, tests, vendor und upstream-reference nebeneinander liegen.
-3. Der zu bauende Sketch ist firmware/HeishaMon/HeishaMon.ino. Die Erweiterung ist dort bereits integriert. Nicht nur die Dateien aus extension einzeln in der IDE öffnen.
-4. Eigene Hardwareparameter stehen in extension/hmx_config.h. Bei Änderungen an der Erweiterung müssen die installierten Dateien kontrolliert synchronisiert werden; das Integrationsskript überschreibt absichtlich keine abweichende Installation.
-5. Für die folgenden PowerShell-Befehle im Explorer den Projekt-Hauptordner öffnen, in die Adresszeile powershell eingeben und Enter drücken. Mit den folgenden Befehlen den Arbeitsordner prüfen:
+Für GitHub Actions direkt mit 14.7 fortfahren. Für lokale CLI-/IDE-Builds eine Git-Arbeitskopie des Forks auf dem Branch `touch-display` verwenden. Ein heruntergeladenes Quell-ZIP ersetzt sie nicht: Die Sketch-Erzeugung benötigt die gespeicherte Git-Basis. Die vorhandene Arbeitskopie liegt unter `D:/ChatGPT_CODEX/HeishaMon/fork`.
+
+PowerShell im Repository öffnen und in den Erweiterungsordner wechseln:
 
 ```powershell
-Get-Location
-Test-Path .\tools\build.ps1
-Test-Path .\firmware\HeishaMon\HeishaMon.ino
+git branch --show-current
+Set-Location touch-extension
+Test-Path ./tools/prepare_firmware.py
 ```
 
-Beide Test-Path-Ausgaben müssen True sein. Bei False den Ordner mit README.md öffnen und dort ein neues Terminal starten. Befehle einzeln ausführen und nach einer Fehlermeldung zunächst deren Ursache beheben.
+Erwartet werden `touch-display` und `True`. Die folgenden relativen Befehle gelten ab hier aus `touch-extension/`. Bei einer anderen Arbeitskopie deren tatsächlichen Pfad verwenden.
+
+Der originale Sketch unter `HeishaMon/` im Repository enthält keine Touch-Erweiterung. Der zu bauende Sketch entsteht unter `touch-extension/firmware/HeishaMon/HeishaMon.ino`. Quellen und eigene Pin-/Helligkeitsparameter ausschließlich unter `touch-extension/extension/` bearbeiten. Vor jedem IDE-Build den Sketch neu erzeugen; das CLI-Buildskript erledigt dies automatisch:
+
+```powershell
+python tools/prepare_firmware.py
+Test-Path ./firmware/HeishaMon/HeishaMon.ino
+```
+
+Die Vorbereitung prüft die offizielle Basis und schützt manuell veränderte erzeugte Dateien vor stillem Überschreiben. Bei Abbruch die Abweichung prüfen; nicht die Originalquellen als Ersatz bauen.
 
 Für alle drei Wege gelten dieselben Zielparameter:
 
@@ -334,7 +343,7 @@ Für alle drei Wege gelten dieselben Zielparameter:
 | Flash Size | 4 MB entsprechend der hier verwendeten Build-Konfiguration |
 | Sonstige Boardoptionen | Voreinstellungen dieses Boards/Core-Stands |
 
-Zielboard, USB CDC, QSPI-PSRAM und Partitionierung entsprechen dem offiziellen HeishaMon-S3-Buildskript. Für den nächsten lokalen Build und die beiliegende CI-Vorlage ist Core 3.3.12 vorgesehen. PSRAM=enabled heißt beim S3 konkret QSPI PSRAM, nicht OPI. Andere Modulvarianten müssen vor einer Abweichung anhand ihrer Hardware geprüft werden. Die reale Partitionstabelle der vorhandenen V6 wurde hier nicht ausgelesen.
+Zielboard, USB CDC, QSPI-PSRAM und Partitionierung entsprechen dem offiziellen HeishaMon-S3-Buildskript. Der HMX-Workflow verwendet Core 3.3.12; diese Version auch lokal verwenden. PSRAM=enabled heißt beim S3 konkret QSPI PSRAM, nicht OPI. Andere Modulvarianten müssen vor einer Abweichung anhand ihrer Hardware geprüft werden. Die reale Partitionstabelle der vorhandenen V6 wurde hier nicht ausgelesen.
 
 ### 14.3 Weg A: Windows mit Arduino CLI - einmalige Einrichtung
 
@@ -362,7 +371,7 @@ arduino-cli version
 
 Erwartet wird die CLI-Version. Eine installierte Arduino IDE ersetzt diesen PATH-Schritt nicht automatisch. Als Alternative unterstützt tools/build.ps1 den Parameter -ArduinoCli mit dem vollständigen EXE-Pfad.
 
-**ESP32-Core und Bibliotheken installieren:** Bei Internetzugriff nacheinander im Projekt-Hauptordner ausführen:
+**ESP32-Core und Bibliotheken installieren:** Bei Internetzugriff nacheinander im Erweiterungsordner touch-extension/ ausführen:
 
 ```powershell
 $espIndex='https://espressif.github.io/arduino-esp32/package_esp32_index.json'
@@ -379,13 +388,14 @@ arduino-cli lib list
 
 Erwartet wird der Core esp32:esp32 in Version 3.3.12 und die genannten Bibliotheken. Adafruit NeoPixel 1.15.5 liegt bereits unter vendor/Adafruit_NeoPixel und wird vom Buildskript über --library vendor/Adafruit_NeoPixel eingebunden. vendor/DisplayFont dient der Vorschauerzeugung und wird nicht als zusätzliche Arduino-Bibliothek installiert. Keine zusätzlichen Displaytreiber wie TFT_eSPI oder LVGL nötig.
 
-Erste Downloads und erster Build können mehrere Minuten dauern. Die spätere Kompilierung nutzt lokale Caches. Die hier genannten Versionen entsprechen der beigefügten Workflow-Vorlage; ein Versionswechsel wird nicht automatisch als kompatibel angenommen.
+Erste Downloads und erster Build können mehrere Minuten dauern. Die spätere Kompilierung nutzt lokale Caches. Die hier genannten Versionen entsprechen dem aktiven HMX-Workflow; ein Versionswechsel wird nicht automatisch als kompatibel angenommen.
 
 ### 14.4 Weg A: prüfen, bauen und BIN finden
 
-Im Projekt-Hauptordner:
+Im Erweiterungsordner `touch-extension/`:
 
 ```powershell
+python tools/prepare_firmware.py
 python tools/apply_extension.py firmware --check
 python tests/test_integration.py
 node tests/test_preview.mjs
@@ -398,7 +408,7 @@ ExecutionPolicy Bypass gilt hier nur für diesen PowerShell-Aufruf. Es wird kein
 
 Ergebnisordner: output/firmware. Die relevante Datei heißt HeishaMon_ESP32-HMX-0.1.0-dev.7-<md5>.bin. Die spitzen Klammern stehen für die tatsächliche 32-stellige MD5-Prüfsumme und werden nicht mitgetippt. Das Skript prüft die Größe und benennt nur nach einem erfolgreichen Compiler-Aufruf eine Application-BIN.
 
-Optional zusätzlich das Firmware-Manifest erzeugen:
+Das CLI-Buildskript erzeugt das Manifest bereits. Bei separat exportierter BIN kann es mit dem Paketierungsskript erzeugt werden:
 
 ```powershell
 python tools/package_firmware.py output/firmware
@@ -442,7 +452,7 @@ https://espressif.github.io/arduino-esp32/package_esp32_index.json
 
 Die IDE übernimmt --library vendor/Adafruit_NeoPixel aus dem PowerShell-Skript nicht. Deshalb NeoPixel hier ausdrücklich installieren. Falls diese Version im Manager nicht verfügbar ist, bei geschlossener IDE den kompletten Ordner vendor/Adafruit_NeoPixel nach <Sketchbook>/libraries/Adafruit_NeoPixel kopieren. Den Sketchbook-Pfad zeigt Datei > Voreinstellungen. Vorhandene Bibliotheken nicht ungeprüft überschreiben; doppelte NeoPixel-Installationen zuerst vergleichen. Anschließend IDE neu starten.
 
-7. Datei > Öffnen und firmware/HeishaMon/HeishaMon.ino auswählen. Alle zum Sketch gehörenden Dateien bleiben im mitgelieferten Ordner, einschließlich src/hmx.
+7. Zuerst wie in 14.2 den Sketch erzeugen. Dann Datei > Öffnen und ausschließlich touch-extension/firmware/HeishaMon/HeishaMon.ino auswählen. Die erzeugten Dateien einschließlich src/hmx zusammenlassen. Nach Quelländerungen unter extension/ erneut vorbereiten.
 8. Optional in Voreinstellungen die ausführliche Ausgabe beim Kompilieren einschalten. Das erleichtert die Prüfung verwendeter Bibliotheksversionen und die Fehlersuche.
 
 ### 14.6 Weg B: in der IDE kompilieren, exportieren und benennen
@@ -451,7 +461,7 @@ Die IDE übernimmt --library vendor/Adafruit_NeoPixel aus dem PowerShell-Skript 
 2. Sketch > Kompilierte Binärdatei exportieren / Sketch > Export Compiled Binary wählen. Der Sketch wird gegebenenfalls erneut gebaut.
 3. Über Sketch > Sketch-Ordner anzeigen / Show Sketch Folder den Ordner firmware/HeishaMon öffnen. Die ESP32-IDE-2-Ausgabe liegt üblicherweise darunter in build/esp32.esp32.esp32s3. Falls abweichend, nach der gerade erzeugten HeishaMon.ino.bin suchen und Zeitstempel kontrollieren.
 4. Ausschließlich die Application-Datei HeishaMon.ino.bin verwenden. Nicht HeishaMon.ino.bootloader.bin, HeishaMon.ino.partitions.bin, eine merged.bin oder eine with_bootloader-Datei.
-5. Zur Größenprüfung, MD5-Benennung und Erzeugung des Manifests das beiliegende Paketierungsskript benutzen. Dazu Python wie in 14.3 einrichten und im Projekt-Hauptordner den tatsächlich vorhandenen Exportordner angeben:
+5. Zur Größenprüfung, MD5-Benennung und Erzeugung des Manifests das beiliegende Paketierungsskript benutzen. Dazu Python wie in 14.3 einrichten und im Erweiterungsordner touch-extension/ den tatsächlich vorhandenen Exportordner angeben:
 
 ```powershell
 $exportDir='firmware/HeishaMon/build/esp32.esp32.esp32s3'
@@ -467,48 +477,25 @@ Die IDE führt die Python-Integrations- und Node-Vorschautests nicht automatisch
 
 ### 14.7 Weg C: GitHub Actions ohne lokalen ESP32-Compiler
 
-Hier kompiliert GitHub auf Linux. Auf dem eigenen Rechner werden weder ESP32-Compiler noch Arduino CLI oder IDE benötigt. Die Vorlage liegt unter tools/HMX_build_workflow.yml; sie wird nicht automatisch durch das Herunterladen des Projekt-ZIP aktiv. Es wird ein eigenes Repository mit Schreibzugriff benötigt.
+Im vorhandenen [Fork ralf-e/HeishaMon](https://github.com/ralf-e/HeishaMon/tree/touch-display) ist der Workflow bereits eingerichtet. Kein neues Repository anlegen und keine Workflow-Vorlage kopieren. Die aktive Datei ist `.github/workflows/hmx.yml` im Repository-Hauptordner.
 
-**Eigenes Repository mit GitHub Desktop vorbereiten:**
+**Vorhandene BIN herunterladen:**
 
-1. GitHub-Konto anlegen beziehungsweise anmelden. GitHub Desktop von https://desktop.github.com/ installieren und dort anmelden.
-2. Eine Arbeitskopie des entpackten Projektordners verwenden. In deren Hauptordner liegt die mitgelieferte .gitignore. Im Explorer unter Ansicht die Anzeige ausgeblendeter Elemente aktivieren, falls die Datei nicht sichtbar ist.
-3. In GitHub Desktop File > Add local repository wählen und genau diesen Hauptordner auswählen. Falls er noch kein Git-Repository ist, den angebotenen Link create a repository here verwenden. Vor dem Bestätigen den endgültigen Pfad kontrollieren, damit kein zusätzlicher gleichnamiger Unterordner entsteht.
-4. Die Vorlage im Projektordner an den für GitHub erforderlichen Ort kopieren. Dazu PowerShell im Hauptordner öffnen:
+1. Auf GitHub anmelden und im Fork **Actions** öffnen.
+2. Links **HMX ESP32-S3 build** wählen und den erfolgreichen Lauf für den gewünschten Quellcommit öffnen (grüner Haken).
+3. Unten unter **Artifacts** auf **HeishaMon-HMX-ESP32S3-development** klicken.
+4. ZIP herunterladen und entpacken. Darin liegen `HeishaMon_ESP32-HMX-0.1.0-dev.7-<md5>.bin` und `firmware_manifest.json`.
+5. Version, Quellstand und Prüfsummen kontrollieren. Für das Webupdate nur die entpackte Application-BIN verwenden.
 
-```powershell
-New-Item -ItemType Directory -Force .github\workflows | Out-Null
-Copy-Item .\tools\HMX_build_workflow.yml .\.github\workflows\hmx-build.yml
-Test-Path .\.github\workflows\hmx-build.yml
-```
+**Neuen Build auslösen:** Änderungen unter `touch-extension/`, `HeishaMon/` oder am HMX-Workflow auf den Branch `touch-display` pushen. Der Build startet automatisch; nur lokale Änderungen lösen keinen Lauf aus. Reine Änderungen an der README im Repository-Hauptordner starten keinen HMX-Build.
 
-5. Zurück in GitHub Desktop die Änderungen prüfen und als ersten Commit speichern, beispielsweise mit der Zusammenfassung HeishaMon Touch Build vorbereiten.
-6. Publish repository wählen. Einen eigenen Namen vergeben, zum Beispiel HeishaMon-Touch. Private Veröffentlichung ist möglich; dann Keep this code private aktiviert lassen. Aktionen und mögliche Kontingente richten sich nach dem GitHub-Konto. Anschließend Repository veröffentlichen.
-7. Im Browser im Repository prüfen, ob firmware/HeishaMon/HeishaMon.ino, vendor/Adafruit_NeoPixel, tools, tests und upstream-reference tatsächlich vorhanden sind. Die Ordner dürfen nicht versehentlich in einer zusätzlichen ZIP-Verzeichnisebene liegen.
-8. Unter .github/workflows muss hmx-build.yml auf dem Standardbranch, üblicherweise main, sichtbar sein. output und archive sind durch .gitignore absichtlich vom Repository ausgeschlossen.
+**Denselben Commit erneut bauen:** Einen vorhandenen HMX-Lauf öffnen und oben rechts **Re-run all jobs**, danach **Re-run jobs** wählen. Dies baut den damaligen Quellstand erneut. Falls **Run workflow** angeboten wird, dort ausdrücklich `touch-display` wählen; der Knopf kann fehlen, weil der Workflow nur auf diesem Nebenbranch liegt.
 
-Ein einfacher Fork des unveränderten offiziellen HeishaMon reicht nicht aus: Der Workflow benötigt unser vollständiges Projekt mit integrierter Erweiterung, Prüfdateien und vendor-Inhalt. GitHub Desktop benötigt für diesen Ablauf keinen zusätzlichen lokalen Git-CLI-Aufruf.
+**Die beiden Workflows unterscheiden:** **HMX ESP32-S3 build** prüft und baut die Touch-Firmware. **Build binary** stammt aus dem Originalprojekt und wird auf `touch-display` absichtlich übersprungen (grauer durchgestrichener Kreis). Dessen übersprungener Lauf ist kein Buildfehler und enthält keine Touch-BIN.
 
-**Build starten und verfolgen:**
+Der HMX-Job führt Regressionstests aus, installiert Core/Bibliotheken, erzeugt den integrierten Sketch, kompiliert und lädt BIN sowie Manifest hoch. Ein grüner Build belegt die erfolgreiche Kompilierung und die automatischen Prüfungen. Er ersetzt keinen Hardwaretest, veröffentlicht kein GitHub Release und installiert nichts auf der V6.
 
-1. Im eigenen Repository den Reiter Actions öffnen.
-2. Falls GitHub eine Aktivierung der Workflows verlangt, diese im eigenen Repository freigeben. Bei organisationsseitiger Sperre sind die Repository-/Organisationsregeln maßgeblich.
-3. Links HMX ESP32-S3 build auswählen.
-4. Run workflow anklicken, den Standardbranch auswählen und mit Run workflow starten. Der Workflow muss für diesen Knopf auf dem Standardbranch liegen und workflow_dispatch enthalten; beides ist mit der genannten Einrichtung vorgesehen.
-5. Den neu angelegten Lauf öffnen. Der Job build prüft Python-/C++-Regressionsfälle und Integration, installiert Core/Bibliotheken, kompiliert den Sketch und paketiert die BIN. Die dev.7-Vorlage prüft zusätzlich Modellzuordnung, Tabellenreproduktion und HTML-Vorschau.
-6. Erst bei grünem Abschluss mit dem Download fortfahren. Ein roter Schritt bedeutet: dessen Protokoll öffnen, Fehlermeldung beheben, Änderung committen und Push origin ausführen. Danach einen neuen Lauf starten. Ein grüner Build ist ein Compiler-Nachweis, kein Nachweis erfolgreicher Hardwaretests.
-
-Die Vorlage startet außerdem bei Pushes mit Änderungen unter extension, firmware, tools oder tests. Der manuelle Start bleibt möglich. Ein Workflow-Lauf veröffentlicht die Firmware nicht automatisch als GitHub Release und installiert nichts auf der V6.
-
-**Fertige BIN herunterladen:**
-
-1. Auf der Übersichtsseite des erfolgreichen Laufs zum Abschnitt Artifacts scrollen.
-2. HeishaMon-HMX-ESP32S3-development anklicken. Zum Download bei GitHub angemeldet sein.
-3. Das heruntergeladene ZIP entpacken. Darin müssen die benannte HeishaMon_ESP32-HMX-0.1.0-dev.7-<md5>.bin und firmware_manifest.json enthalten sein. Eventuelle Unterordner mit öffnen.
-4. Im Manifest Ziel ESP32-S3, Erweiterungsversion, Dateigröße und MD5 prüfen. Das Feld hardware_tested bleibt false, solange kein separater Hardwaretest dokumentiert ist.
-5. Die benannte BIN lokal aufbewahren und mit Kapitel 15 fortfahren. Das Artefakt-ZIP selbst nicht im HeishaMon hochladen.
-
-Falls kein Run-workflow-Knopf erscheint: Standardbranch, Dateipfad .github/workflows/..., workflow_dispatch und Schreibrechte prüfen. Falls Artifacts fehlt: erfolgreichen Abschluss des Upload-artifact-Schritts prüfen. Artefakte können ablaufen; benötigte BIN und Manifest rechtzeitig lokal sichern.
+Alte Läufe können gelöscht werden; dabei verschwinden ihre Protokolle und Artefakte, der Quellcode bleibt erhalten. Den letzten erfolgreichen HMX-Lauf behalten oder BIN und Manifest vorher sichern. Artefakte können auch durch ihre Aufbewahrungsfrist ablaufen.
 
 ### 14.8 BIN prüfen und typische Fehler unterscheiden
 
@@ -564,7 +551,7 @@ Offizielle Anleitungen, geprüft am 25.10.2026:
 
 ## 15. Installation und Updates über das normale Webinterface
 
-**Ja: Der vorgesehene Installations- und Updateweg ist das normale HeishaMon-Webinterface, Menü Firmware beziehungsweise /firmware.** Voraussetzung ist ein erfolgreich gebautes ESP32-S3-Application-Binary mit passender Partitionierung und ausreichendem freien OTA-Speicher. Für dev.7 ist nach dem erfolgreichen lokalen Neubau die neue, mit dev.7 benannte Application-BIN zu verwenden. Die aufbewahrte dev.6-BIN gehört zum vorherigen Stand und enthält die Modellanzeige nicht. Hardwaretests stehen aus.
+**Ja: Der vorgesehene Installations- und Updateweg ist das normale HeishaMon-Webinterface, Menü Firmware beziehungsweise /firmware.** Voraussetzung ist ein erfolgreich gebautes ESP32-S3-Application-Binary mit passender Partitionierung und ausreichendem freien OTA-Speicher. Für dev.7 die zum gewünschten erfolgreich gebauten Commit gehörende, mit dev.7 benannte Application-BIN verwenden. Die frühere dev.6-BIN gehört zum vorherigen Stand. Hardwaretests stehen aus.
 
 Vorgehen nach erfolgreichem Build:
 1. Aktuelle Einstellungen, Regeln, Dallas-Aliase und die derzeit funktionierende Originalfirmware sichern. Verfügbare Exportmöglichkeiten der vorhandenen Version verwenden.
@@ -581,24 +568,9 @@ Ein normales Upstream-Binary kann später über das Webinterface eingespielt wer
 
 ## 16. Spätere Upstream-Updates einpflegen
 
-1. Neuen HeishaMon-Stand in einen **neuen sauberen Checkout** laden; den bisherigen funktionierenden Stand behalten.
-2. Eigene Pin- und Helligkeitskonfiguration in extension/hmx_config.h beibehalten.
-3. Vorprüfung gegen den neuen Checkout:
+Für Updates gilt die [Fork-Anleitung: Neue offizielle HeishaMon-Version übernehmen](Fork_Workflow.md#neue-offizielle-heishamon-version-übernehmen). Sie beschreibt die geprüfte Übernahme über `main` und `touch-display`, die Aktualisierung der Basisreferenzen und die anschließenden Prüfungen.
 
-```powershell
-python tools/apply_extension.py D:/Pfad/Zum/Neuen/HeishaMon --check
-```
-
-4. Wenn alle Anker passen, ohne --check integrieren.
-5. Die Änderungen der zwei Originaldateien prüfen. Insbesondere neue heatpumpSerial.write-Stellen, andere Sendetasks, geänderte settingsStruct-Felder und Änderungen an ETH.begin(..., SPI) beachten.
-6. Neue Topicanzahl und geänderte Dallas-Strukturen prüfen.
-7. Integrationstests und echten ESP32-Build durchführen. Tests gegen den neuen Stand müssen mit aktualisierter, geprüfter Upstream-Referenz laufen; die mitgelieferten Fixtures prüfen zunächst nur die festgehaltene Ausgangsversion.
-8. Touch-Auswahl, Persistenz, passive Sendeunterdrückung, Touch und Ethernet nach dem untenstehenden Prüfplan testen.
-9. Erst dann neues Application-Binary per Webinterface installieren.
-
-Wenn ein Anker nicht passt, wird kein automatischer Ersatz erzwungen. Die kleine Integrationsfunktion in tools/apply_extension.py wird gezielt an den neuen Kontext angepasst. Die Display- und Touchdateien bleiben davon normalerweise unberührt.
-
-Nicht vorgehen: neuen Upstream ungeprüft über den bearbeiteten Sketch kopieren oder eine neue Original-BIN installieren und erwarten, dass die Display-Erweiterung erhalten bleibt.
+Die offiziellen Quellen im Repository bleiben unverändert. Änderungen an Displaymodulen werden unter `touch-extension/extension/` gepflegt und mit `prepare_firmware.py` in den erzeugten Sketch integriert. Neue Upstream-Versionen benötigen eine bewusste Prüfung der Integrationspunkte, Sendewege, Decoder und Ethernet-Anbindung sowie einen neuen Build und Hardwaretests. Eine Original-HeishaMon-BIN enthält die Display-Erweiterung nicht.
 
 ## 17. Hardware-Abnahmeplan
 
@@ -678,7 +650,7 @@ Der Zwischenadapter liegt als KiCad-Schaltplan und nicht gerouteter Platzierungs
 - Gemeinsame SPI-Nutzung: https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/peripherals/spi_master.html
 - NeoPixel-Abhängigkeit: https://github.com/adafruit/Adafruit_NeoPixel/tree/d514fc3beae85dd4c2b19781b93faa47bd6e996f
 
-Der Quellcode enthält unveränderte Fremdquellen und deren vorhandene Hinweise. Die zusätzlich bereitgestellte NeoPixel-Quelle besitzt ihre eigene LGPL-Lizenzdatei unter vendor/Adafruit_NeoPixel/COPYING.
+Der aktuelle Lizenzstand und die Antwort zu MPL-2.0, Quellcode-/BIN-Weitergabe und Drittlizenzhinweisen sind in der [Fork-Anleitung](Fork_Workflow.md#prüfumfang-und-lizenz) dokumentiert. Stand 26.10.2026 ist Upstream-PR #1030 noch offen. Der Quellcode enthält unveränderte Fremdquellen und deren vorhandene Hinweise. Die zusätzlich bereitgestellte NeoPixel-Quelle besitzt ihre eigene LGPL-Lizenzdatei unter vendor/Adafruit_NeoPixel/COPYING.
 
 ## 21. Kompakte Überkopf-Zwischenplatine Rev.0.6
 
@@ -835,7 +807,7 @@ BOM_Detail.csv enthält Stückzahlen und Spezifikationen, Availability_2026-10-2
 
 ## 23. Projektaufbau
 
-Quellen liegen in extension/ und firmware/, KiCad in hardware/, Fertigungsdaten in manufacturing/JLCPCB/Rev06/, Dokumentation in docs/, die aktuellen Downloadpakete in output/. Historische Entwürfe liegen getrennt in archive/. Flüchtige Build- und Renderdateien werden nicht als aktuelle Ergebnisse behandelt. README.md ist der Einstiegspunkt.
+Gepflegte Erweiterungsquellen liegen in touch-extension/extension/, offizielle Quellen unter HeishaMon/ im Repository. touch-extension/firmware/ ist ausschließlich der erzeugte, nicht versionierte Build-Sketch. KiCad liegt unter touch-extension/hardware/, Fertigungsdaten unter touch-extension/manufacturing/JLCPCB/Rev06/, Dokumentation unter touch-extension/docs/. Lokale Buildausgaben liegen unter touch-extension/output/; Actions-BINs sind beim jeweiligen erfolgreichen Workflow-Lauf als Artefakt erhältlich. Historische Entwürfe liegen getrennt in archive/. Flüchtige Build- und Renderdateien werden nicht als aktuelle Ergebnisse behandelt. README.md ist der Einstiegspunkt.
 
 ## Anhang A. Vollständige Verbindungsliste
 

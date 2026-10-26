@@ -60,7 +60,7 @@ Falls GitHub Actions für den neuen Fork noch deaktiviert sind, im Reiter **Acti
 
 Die Partitionierung wird durch den Fork nicht verändert: weiterhin ESP32-S3 mit `min_spiffs`. Bei bereits passender Partitionierung kann die benannte **Application-BIN** im normalen Webinterface installiert werden. Keine `merged.bin`, Bootloader- oder Partition-BIN dort hochladen. Konservative Grenze: 0x1DF000 Bytes. Bei unbekannter/anderer Partitionierung zuerst die detaillierte USB-Erstinstallationsanleitung beachten.
 
-Es ist weiterhin kein erfolgreicher dev.7-Vollbuild und kein Hardwaretest nachgewiesen. Die früher lokal gebaute dev.6-BIN gehört nicht zum aktuellen Fork-Quellstand und wird nicht als dev.7 veröffentlicht.
+Der [HMX-Actions-Lauf 40380596372](https://github.com/ralf-e/HeishaMon/actions/runs/40380596372) hat dev.7 auf Commit `bfc89046e7ac04ee628347f56f0198b0bbca997f` erfolgreich gebaut, die Regressionstests bestanden und BIN sowie Manifest als Entwicklungsartefakt bereitgestellt. Hardwaretests stehen weiterhin aus. Die früher lokal gebaute dev.6-BIN gehört nicht zum aktuellen Fork-Quellstand.
 
 ## Neue offizielle HeishaMon-Version übernehmen
 
@@ -78,4 +78,12 @@ Die Modellzuordnung hat einen eigenen dokumentierten Tabellenstand. Aktualisieru
 
 ## Prüfumfang und Lizenz
 
-Die Migration übernimmt Software und Hardware ohne Funktionsänderung. Hinzu kommen Fork-Aufbau, Quellprüfung, Erzeugung des Build-Sketches und CI-Anpassung. Bestehende Lizenzvermerke bleiben erhalten; eine neue Gesamtprojektlizenz wird nicht behauptet. Die bereits angefragte Klärung beim HeishaMon-Entwickler bleibt offen. Hardwareprüfung, Stromreserve der V6, Passform und realer Betrieb von LCD/Touch/Ethernet sind weiterhin ausstehend.
+Die Migration übernimmt Software und Hardware ohne Funktionsänderung. Hinzu kommen Fork-Aufbau, Quellprüfung, Erzeugung des Build-Sketches und CI-Anpassung. Hardwareprüfung, Stromreserve der V6, Passform und realer Betrieb von LCD/Touch/Ethernet sind weiterhin ausstehend.
+
+**Lizenzstand vom 26.10.2026:** Igor Ybema hat in der [Antwort auf Issue #1029](https://github.com/heishamon/HeishaMon/issues/1029#issuecomment-6421009129) die vorgesehene Lizenzierung erläutert. [PR #1030](https://github.com/heishamon/HeishaMon/pull/1030) ergänzt dafür `LICENSE` (MPL-2.0), `THIRD_PARTY_NOTICES.md` sowie Bibliotheks- und README-Hinweise. Der PR ist noch offen und sammelt die Zustimmung der Mitwirkenden; die Antwort stellt die folgenden Bedingungen ausdrücklich unter den Vorbehalt des Merges:
+
+- MPL-2.0 soll für Dateien ohne abweichenden Lizenzheader gelten. Änderungen an HeishaMon-Dateien müssen unter MPL-2.0 veröffentlicht werden; neue eigene Dateien, etwa Display-/Touchmodule, dürfen eine eigene Lizenz erhalten.
+- Empfänger einer Firmware-BIN müssen auf den exakt passenden Quellcode hingewiesen werden. Für HMX sind dazu der jeweilige Quellcommit, die Erweiterungsquellen und die Build-Anleitung anzugeben.
+- Vorhandene Copyright- und Lizenzhinweise bleiben erhalten. `THIRD_PARTY_NOTICES.md` ist bei BIN-Weitergabe beizulegen oder zu verlinken; Fremdquellen und eingebundene Bibliotheken behalten ihre eigenen Lizenzen. Vollständige Quellen und Build-Anweisungen sollen den Neubau mit geänderten LGPL-Bibliotheken ermöglichen.
+
+Der aktuelle Fork-Basisstand enthält diese neuen Upstream-Lizenzdateien noch nicht. Nach dem Merge sind sie bei einer geprüften Übernahme zu berücksichtigen und bei künftigen BIN-Veröffentlichungen mit dem passenden Quellstand zu verknüpfen. Dieser Hinweis vergibt keine neue Pauschallizenz für die eigenen Displaymodule, Hardwareunterlagen oder das gesamte Erweiterungspaket.

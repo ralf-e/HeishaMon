@@ -1,4 +1,21 @@
-> **ESP32-S3 Touch-Display-Erweiterung (Entwicklung):** [Dokumentation und Einstieg](touch-extension/README.md). Branch `touch-display`; Hardwaretests stehen aus. Das Originalprojekt folgt unten.
+# HeishaMon mit Touch-Display
+
+Dieser Fork ergänzt **HeishaMon Large / V6 (ESP32-S3)** um ein lokales Touch-Display. Die Erweiterung liegt auf dem Branch `touch-display`; `main` bleibt beim offiziellen HeishaMon-Stand.
+
+- **Anzeige:** Waveshare 3,5-Zoll-IPS-Display (SKU 29318), 480 × 320 Pixel im Querformat. Die Übersicht zeigt 20 Werte, darunter Vorlauf/Rücklauf, Warmwasser und Heizkreise mit Ist-/Sollwerten, Volumenstrom und Wärmepumpenstatus.
+- **Bedienung:** Per Touch durch alle WP-Topics, Zusatzdaten, Optional-PCB-Werte und Dallas-Sensoren blättern. Antippen öffnet Wertdetails; die Geräteinfo zeigt Modell- und Firmwaredaten. Fehlende und veraltete Daten werden gekennzeichnet.
+- **Betriebsart:** „Automatisch“ oder „Listen only“ direkt am Display wählen und dauerhaft speichern. Bestehende Web-Einstellungen und Empfangsprüfungen bleiben wirksam. Das Display selbst erzeugt keine Wärmepumpen-Stellbefehle.
+- **Aufbau:** Eine eigene Adapterplatine Rev.0.6 verbindet das Display mit der V6; optionales W5500-Ethernet ist weiterhin vorgesehen. Schaltplan, KiCad-Projekt und Fertigungsdaten liegen bei.
+
+**Stand:** Software `0.1.0-dev.7`; [ESP32-S3-Build und Regressionstests erfolgreich](https://github.com/ralf-e/HeishaMon/actions/runs/40380596372). Hardwaretests, Passform und Stromreserve an der realen V6 stehen noch aus; die Firmware ist ein Entwicklungsstand.
+
+**Weiterlesen:** [Touch-Dokumentation und Vorschau](touch-extension/README.md) · [Build, Installation und Updates im Fork](touch-extension/docs/Fork_Workflow.md)
+
+**Lizenzklärung (26.10.2026):** Als Antwort auf [Issue #1029](https://github.com/heishamon/HeishaMon/issues/1029#issuecomment-6421009129) schlägt Upstream in [PR #1030](https://github.com/heishamon/HeishaMon/pull/1030) MPL-2.0 samt Drittlizenzhinweisen vor. Der PR ist noch offen; die Zustimmung der Mitwirkenden wird gesammelt. Die erläuterten Bedingungen für Quellcode und Firmware-BINs sind in den [Lizenzhinweisen zum Fork](touch-extension/docs/Fork_Workflow.md#prüfumfang-und-lizenz) zusammengefasst.
+
+---
+
+Die ursprüngliche HeishaMon-README folgt unten.
 
 [![Join us on Slack chat room](https://img.shields.io/badge/Slack-Join%20the%20chat%20room-orange)](https://join.slack.com/t/panasonic-wemos/shared_invite/enQtODg2MDY0NjE1OTI3LTgzYjkwMzIwNTAwZTMyYzgwNDQ1Y2QxYjkwODg3NjMyN2MyM2ViMDM3Yjc3OGE3MGRiY2FkYzI4MzZiZDVkNGE)
 [![Build binary](https://github.com/the78mole/HeishaMon/actions/workflows/main.yml/badge.svg)](https://github.com/the78mole/HeishaMon/actions/workflows/main.yml)

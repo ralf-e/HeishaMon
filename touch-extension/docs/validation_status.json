@@ -9,7 +9,7 @@
   "integration_tests": "6 passed",
   "preview_navigation": "passed: Node VM DOM simulation, touch persistence/restart/storage failure",
   "policy_cpp": "clangd constexpr assertions: 0 errors",
-  "esp32_full_build": "NOT COMPLETED for current extension; previous dev.6 user build succeeded",
+  "esp32_full_build": "SUCCESS: GitHub Actions 40380596372, commit bfc89046e7ac04ee628347f56f0198b0bbca997f, ESP32 core 3.3.12; hardware untested",
   "hardware_design": {
     "nets_verified": 21,
     "components": 25,
@@ -54,5 +54,11 @@
     "uploaded_to_manufacturer": false
   },
   "hardware_tests": "NOT PERFORMED",
-  "flashable_binary_included": false
+  "flashable_binary_included": false,
+  "build_evidence": {
+    "url": "https://github.com/ralf-e/HeishaMon/actions/runs/40380596372",
+    "commit": "bfc89046e7ac04ee628347f56f0198b0bbca997f",
+    "artifact": "HeishaMon-HMX-ESP32S3-development",
+    "distribution": "GitHub Actions artifact; no binary added to Git"
+  }
 }

@@ -6,7 +6,9 @@ Waveshare SKU29318, 480×320 quer, 6×8-Schrift und 20 Zeilen pro Seite. Die Üb
 
 Dieser Ordner enthält die gepflegte Erweiterung. Die offiziellen Quellen liegen im Repository unter `HeishaMon/`; `main` bleibt unverändert. Der Build-Sketch unter `touch-extension/firmware/` wird aus der geprüften Basis erzeugt und ist nicht versioniert. **Zuerst [Fork- und Update-Anleitung](docs/Fork_Workflow.md) lesen.** Sie ergänzt die bisherigen Anleitungen um die neuen Pfade und hat für den Fork Vorrang.
 
-Die PDF beschreibt den bisherigen eigenständigen Projektaufbau; für Build und Update im Fork gilt die verlinkte Fork-Anleitung.
+Markdown-Anleitung und PDF beschreiben den Fork-Aufbau. Die Build-Anleitung verlinkt die zentral gepflegten Schritte für Actions, CLI und IDE; Upstream-Updates stehen in der Fork-Anleitung.
+
+**Lizenzklärung:** Upstream hat auf [Issue #1029](https://github.com/heishamon/HeishaMon/issues/1029#issuecomment-6421009129) mit einem Vorschlag für MPL-2.0 und Drittlizenzhinweisen in [PR #1030](https://github.com/heishamon/HeishaMon/pull/1030) reagiert. Stand 26.10.2026 ist der PR noch offen. Einzelheiten und Bedingungen für Firmware-BINs stehen in den [Lizenzhinweisen zum Fork](docs/Fork_Workflow.md#prüfumfang-und-lizenz).
 
 ## Einstieg
 
@@ -44,9 +46,9 @@ Prototyp-Fertigungsdaten: Mechanik, V6-Stromreserve und tatsächliche Funktion s
 
 ## Software und Prüfungen
 
-Zwei Originaldateien werden durch tools/apply_extension.py angepasst; die Erweiterung selbst liegt getrennt. tools/build.ps1 erzeugt nach erfolgreichem Build die Application-BIN für das normale Webinterface. tools/HMX_build_workflow.yml ist die alternative CI-Vorlage.
+tools/prepare_firmware.py erzeugt den Build-Sketch aus der geprüften Git-Basis; tools/apply_extension.py integriert die Erweiterung dabei in zwei Dateien der erzeugten Kopie. Die offiziellen Quellen bleiben unverändert. Lokal erzeugt tools/build.ps1 die Application-BIN für das Webinterface. Auf GitHub ist ausschließlich .github/workflows/hmx.yml im Repository-Hauptordner der aktive HMX-Workflow; die ältere Datei tools/HMX_build_workflow.yml wird für den Fork nicht benötigt.
 
-**dev.7 benötigt einen neuen Build:** Modellanzeige und Kopf-Schaltflächen sind im Quellcode umgesetzt. Core3.3.12 wird erkannt; der Compilerstart ist in der Agent-Umgebung weiterhin blockiert. Die erfolgreiche dev.6-BIN bleibt als vorheriger Stand erhalten, enthält diese Funktion aber nicht. Hardwaretests stehen aus.
+**dev.7 erfolgreich gebaut:** Der [HMX-Actions-Lauf 40380596372](https://github.com/ralf-e/HeishaMon/actions/runs/40380596372) hat Commit `bfc89046e7ac04ee628347f56f0198b0bbca997f` mit ESP32-Core 3.3.12 kompiliert, die Regressionstests bestanden und das Entwicklungsartefakt `HeishaMon-HMX-ESP32S3-development` mit Application-BIN und Manifest bereitgestellt. Hardwaretests stehen weiterhin aus. Für Build und Installation im Fork gilt die [Fork-Anleitung](docs/Fork_Workflow.md).
 
 Grundprüfungen:
 
