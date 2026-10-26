@@ -1,0 +1,17 @@
+﻿Designator,KiCad rotation,JLC correction,JLC rotation,Basis
+C1,0.000000,0,0.0,No default rotation correction
+C2,0.000000,0,0.0,No default rotation correction
+C3,0.000000,0,0.0,No default rotation correction
+J4,-90.000000,0,270.0,C265027-specific: no generic +180; CPL270 after user JLC 3D feedback; recheck preview
+R0,0.000000,0,0.0,No default rotation correction
+R1,0.000000,0,0.0,No default rotation correction
+R2,0.000000,0,0.0,No default rotation correction
+R3,0.000000,0,0.0,No default rotation correction
+R5,0.000000,0,0.0,No default rotation correction
+R6,0.000000,0,0.0,No default rotation correction
+R7,0.000000,0,0.0,No default rotation correction
+R8,0.000000,0,0.0,No default rotation correction
+R9,0.000000,0,0.0,No default rotation correction
+R10,0.000000,0,0.0,No default rotation correction
+R11,0.000000,0,0.0,No default rotation correction
+U1,0.000000,270,270.0,SOIC rule +270deg (Fabrication Toolkit)

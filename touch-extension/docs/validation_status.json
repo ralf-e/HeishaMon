@@ -1,0 +1,58 @@
+{
+  "extension": "0.1.0-dev.7",
+  "upstream": "b3ef43691f21985c851903d69a0f2e8647ed31f8",
+  "original_files": 73,
+  "modified_upstream_files": [
+    "HeishaMon/HeishaMon.ino",
+    "HeishaMon/gpio.cpp"
+  ],
+  "integration_tests": "6 passed",
+  "preview_navigation": "passed: Node VM DOM simulation, touch persistence/restart/storage failure",
+  "policy_cpp": "clangd constexpr assertions: 0 errors",
+  "esp32_full_build": "NOT COMPLETED for current extension; previous dev.6 user build succeeded",
+  "hardware_design": {
+    "nets_verified": 21,
+    "components": 25,
+    "erc_violations": 0,
+    "placement_clearance_violations": 0,
+    "unconnected_groups": 0,
+    "routing_complete": true,
+    "tracks": 199,
+    "vias": 64,
+    "ground_zones": 2,
+    "layout_revision": "0.6",
+    "manufacturing_release": false,
+    "mounting_transform_verified": true,
+    "board_mm": [
+      23,
+      41
+    ]
+  },
+  "jlcpcb_export": {
+    "board_mm": [
+      23,
+      41
+    ],
+    "layers": 2,
+    "thickness_mm": 1.6,
+    "assembly_design_side": "Top/F",
+    "mounted_side": "underside after 180deg flip",
+    "smd_placements": 16,
+    "bom_groups": 9,
+    "manual_headers": [
+      "J1",
+      "J2",
+      "J3"
+    ],
+    "manual_header_drill_holes": 20,
+    "exported_manual_holes_verified": true,
+    "bom_cpl_designators_match": true,
+    "gerber_origin": "lower left: KiCad (98.66,136), exported (0,0)",
+    "rotation_source": "Fabrication Toolkit transformations.csv blob 40878ad04b8f0ac427e48085c2440ea26bbd99a9; SOIC +270deg; C265027 specific offset 0deg (generic JST_GH_SM rule overridden after user 3D review)",
+    "pcb_sha256": "1215614d639d262178b7ba910c49b7121cb1fc020a33fbc22163eb2f84ee4cf9",
+    "mechanical_verification": false,
+    "uploaded_to_manufacturer": false
+  },
+  "hardware_tests": "NOT PERFORMED",
+  "flashable_binary_included": false
+}

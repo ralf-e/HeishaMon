@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1650" height="1180" viewBox="0 0 1650 1180"><rect width="100%" height="100%" fill="white"/>
+<text x="35" y="52" fill="#183147" font-family="Segoe UI, sans-serif" font-size="32" font-weight="700">I2C-, Reset- und Versorgungsplan</text>
+<rect x="40" y="110" width="330" height="390" rx="9" fill="#f1f6fa" stroke="#42677d" stroke-width="2"/>
+<text x="55" y="146" fill="#183147" font-family="Segoe UI, sans-serif" font-size="24" font-weight="700">V6 Extra-GPIOs</text>
+<text x="60" y="260" fill="#183147" font-family="Segoe UI, sans-serif" font-size="25" font-weight="400">GPIO36 / SDA</text>
+<text x="60" y="390" fill="#183147" font-family="Segoe UI, sans-serif" font-size="25" font-weight="400">GPIO37 / SCL</text>
+<rect x="1200" y="110" width="400" height="390" rx="9" fill="#f1f6fa" stroke="#42677d" stroke-width="2"/>
+<text x="1215" y="146" fill="#183147" font-family="Segoe UI, sans-serif" font-size="24" font-weight="700">FT6336U / Touch 0x38</text>
+<text x="1220" y="260" fill="#183147" font-family="Segoe UI, sans-serif" font-size="25" font-weight="400">12 TP_SDA</text>
+<text x="1220" y="390" fill="#183147" font-family="Segoe UI, sans-serif" font-size="25" font-weight="400">13 TP_SCL</text>
+<line x1="370" y1="255" x2="1200" y2="255" stroke="#087e8b" stroke-width="3"/>
+<line x1="370" y1="385" x2="1200" y2="385" stroke="#087e8b" stroke-width="3"/>
+<line x1="620" y1="95" x2="620" y2="150" stroke="#087e8b" stroke-width="3"/>
+<rect x="610" y="150" width="20" height="45" fill="white" stroke="#087e8b" stroke-width="3"/>
+<text x="637" y="176" fill="#183147" font-family="Segoe UI, sans-serif" font-size="21" font-weight="400">4k7</text>
+<line x1="620" y1="195" x2="620" y2="255" stroke="#087e8b" stroke-width="3"/>
+<circle cx="620" cy="255" r="5" fill="#087e8b"/>
+<text x="580" y="87" fill="#183147" font-family="Segoe UI, sans-serif" font-size="22" font-weight="400">3,3 V</text>
+<line x1="920" y1="95" x2="920" y2="150" stroke="#087e8b" stroke-width="3"/>
+<rect x="910" y="150" width="20" height="45" fill="white" stroke="#087e8b" stroke-width="3"/>
+<text x="937" y="176" fill="#183147" font-family="Segoe UI, sans-serif" font-size="21" font-weight="400">4k7</text>
+<line x1="920" y1="195" x2="920" y2="385" stroke="#087e8b" stroke-width="3"/>
+<circle cx="920" cy="385" r="5" fill="#087e8b"/>
+<text x="880" y="87" fill="#183147" font-family="Segoe UI, sans-serif" font-size="22" font-weight="400">3,3 V</text>
+<rect x="460" y="610" width="650" height="250" rx="9" fill="#f1f6fa" stroke="#42677d" stroke-width="2"/>
+<text x="475" y="646" fill="#183147" font-family="Segoe UI, sans-serif" font-size="24" font-weight="700">MCP23008, Adresse 0x20</text>
+<line x1="710" y1="255" x2="710" y2="610" stroke="#087e8b" stroke-width="3"/>
+<circle cx="710" cy="255" r="5" fill="#087e8b"/>
+<line x1="1020" y1="385" x2="1020" y2="610" stroke="#087e8b" stroke-width="3"/>
+<circle cx="1020" cy="385" r="5" fill="#087e8b"/>
+<text x="675" y="596" fill="#183147" font-family="Segoe UI, sans-serif" font-size="21" font-weight="400">SDA</text>
+<text x="990" y="596" fill="#183147" font-family="Segoe UI, sans-serif" font-size="21" font-weight="400">SCL</text>
+<text x="480" y="702" fill="#183147" font-family="Segoe UI, sans-serif" font-size="22" font-weight="400">VDD=3,3 V / VSS=GND / A0,A1,A2=GND</text>
+<text x="480" y="739" fill="#183147" font-family="Segoe UI, sans-serif" font-size="22" font-weight="400">RESET: 10k nach 3,3 V; 100nF an VDD</text>
+<text x="480" y="776" fill="#183147" font-family="Segoe UI, sans-serif" font-size="22" font-weight="400">GP1 -&gt; 15 TP_RST; GP2 -&gt; 10 LCD_RST</text>
+<text x="480" y="813" fill="#183147" font-family="Segoe UI, sans-serif" font-size="22" font-weight="400">Beide Resetleitungen: je 10k nach 3,3 V</text>
+<text x="45" y="975" fill="#183147" font-family="Segoe UI, sans-serif" font-size="25" font-weight="400">GP0 bleibt frei.</text>
+<text x="45" y="1023" fill="#183147" font-family="Segoe UI, sans-serif" font-size="23" font-weight="400">Kein Schalter, kein R4.</text>
+<text x="45" y="1056" fill="#183147" font-family="Segoe UI, sans-serif" font-size="23" font-weight="400">Betriebsart im ESP32 gespeichert.</text>
+<rect x="1180" y="610" width="420" height="400" rx="9" fill="#f1f6fa" stroke="#42677d" stroke-width="2"/>
+<text x="1195" y="646" fill="#183147" font-family="Segoe UI, sans-serif" font-size="24" font-weight="700">Versorgung Erweiterung</text>
+<text x="1200" y="692" fill="#183147" font-family="Segoe UI, sans-serif" font-size="22" font-weight="400">V6: vorhandene 3,3 V</text>
+<text x="1200" y="725" fill="#183147" font-family="Segoe UI, sans-serif" font-size="22" font-weight="400">-&gt; R0 (0 Ohm / Messung)</text>
+<text x="1200" y="758" fill="#183147" font-family="Segoe UI, sans-serif" font-size="22" font-weight="400">-&gt; Display 1 VCC</text>
+<text x="1200" y="791" fill="#183147" font-family="Segoe UI, sans-serif" font-size="22" font-weight="400">-&gt; MCP23008 VDD</text>
+<text x="1200" y="824" fill="#183147" font-family="Segoe UI, sans-serif" font-size="22" font-weight="400"></text>
+<text x="1200" y="857" fill="#183147" font-family="Segoe UI, sans-serif" font-size="22" font-weight="400">Display 2 3V3: offen</text>
+<text x="1200" y="890" fill="#183147" font-family="Segoe UI, sans-serif" font-size="22" font-weight="400">Alle GND gemeinsam</text>
+<text x="1200" y="923" fill="#183147" font-family="Segoe UI, sans-serif" font-size="22" font-weight="400">10uF + 100nF am Display</text>
+<text x="1200" y="956" fill="#183147" font-family="Segoe UI, sans-serif" font-size="22" font-weight="400">Keine Quellen parallel</text>
+<text x="460" y="1042" fill="#183147" font-family="Segoe UI, sans-serif" font-size="22" font-weight="400">Touch-INT und MCP-INT bleiben offen; Abfrage per Software.</text>
+<text x="40" y="1138" fill="#a34e11" font-family="Segoe UI, sans-serif" font-size="23" font-weight="400">MCP23008 verwenden. Keine 5-V-Pull-ups auf SDA/SCL. V6-Versorgung vor Anschluss pruefen.</text>
+</svg>

@@ -1,0 +1,15 @@
+tmp/
+output/
+archive/
+__pycache__/
+*.pyc
+*.kicad_prl
+*.lck
+*-backups/
+
+# Arduino IDE compiled exports
+firmware/HeishaMon/build/
+
+# Generated from the reviewed upstream checkout, never a second source tree
+firmware/
+tests/compile_commands.json

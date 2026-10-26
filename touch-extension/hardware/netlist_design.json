@@ -1,0 +1,562 @@
+{
+  "board_mm": [
+    23,
+    41
+  ],
+  "layout_revision": "0.6",
+  "mounting": "F underside, B headers on top; physical flip about Y",
+  "mounted_transform": "x_mounted=220.32-x_smd; y_mounted=y_smd+2.5",
+  "side_header_policy": "23mm width; V6 2x5 location still unverified",
+  "layers": 2,
+  "status": "ROUTED PROTOTYPE; V6 FIT UNVERIFIED",
+  "vendor_reference": "USR-ES1 2x6 rows; 2.54 pitch; row spacing 20.32mm",
+  "components": [
+    {
+      "ref": "J1",
+      "lib_id": "Connector_Generic:Conn_01x06",
+      "value": "V6 / Reihe 1",
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical",
+      "nets": {
+        "1": "GND",
+        "2": "GND",
+        "3": "SPI_MOSI",
+        "4": "SPI_SCK",
+        "5": "ETH_CS",
+        "6": "ETH_IRQ"
+      },
+      "at": [
+        43.18,
+        57.15
+      ],
+      "boardat": [
+        120.32,
+        97.5
+      ],
+      "rot": 0,
+      "schrot": 0
+    },
+    {
+      "ref": "J2",
+      "lib_id": "Connector_Generic:Conn_01x06",
+      "value": "V6 / Reihe 2",
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical",
+      "nets": {
+        "1": "GND",
+        "2": "+3V3_V6",
+        "3": "+3V3_V6",
+        "4": null,
+        "5": "ETH_RST",
+        "6": "SPI_MISO"
+      },
+      "at": [
+        43.18,
+        110.49
+      ],
+      "boardat": [
+        100,
+        97.5
+      ],
+      "rot": 0,
+      "schrot": 0
+    },
+    {
+      "ref": "J3",
+      "lib_id": "Connector_Generic:Conn_02x04_Odd_Even",
+      "value": "GPIO / 2x4",
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_2x04_P2.54mm_Vertical",
+      "nets": {
+        "1": "LCD_CS",
+        "2": "LCD_DC",
+        "3": "LCD_BL",
+        "4": "I2C_SDA",
+        "5": "I2C_SCL",
+        "6": "+3V3_V6",
+        "7": "+5V_V6",
+        "8": "GND"
+      },
+      "at": [
+        66.04,
+        181.61
+      ],
+      "boardat": [
+        120.32,
+        125
+      ],
+      "rot": 0,
+      "schrot": 0
+    },
+    {
+      "ref": "J4",
+      "lib_id": "Connector_Generic:Conn_01x15",
+      "value": "Display / GH15",
+      "footprint": "Connector_JST:JST_GH_SM15B-GHS-TB_1x15-1MP_P1.25mm_Horizontal",
+      "nets": {
+        "1": "+3V3_EXT",
+        "2": null,
+        "3": "GND",
+        "4": null,
+        "5": "LCD_MOSI",
+        "6": "LCD_SCK",
+        "7": "SD_CS",
+        "8": "LCD_CS",
+        "9": "LCD_DC",
+        "10": "LCD_RST",
+        "11": "LCD_BL",
+        "12": "I2C_SDA",
+        "13": "I2C_SCL",
+        "14": null,
+        "15": "TP_RST"
+      },
+      "at": [
+        353.06,
+        88.9
+      ],
+      "boardat": [
+        101.8,
+        123.8
+      ],
+      "rot": 270,
+      "schrot": 0
+    },
+    {
+      "ref": "U1",
+      "lib_id": "Interface_Expansion:MCP23008-xSO",
+      "value": "MCP23008-xSO",
+      "footprint": "Package_SO:SOIC-18W_7.5x11.6mm_P1.27mm",
+      "nets": {
+        "1": "I2C_SCL",
+        "2": "I2C_SDA",
+        "3": "GND",
+        "4": "GND",
+        "5": "GND",
+        "6": "MCP_RST",
+        "7": null,
+        "8": null,
+        "9": "GND",
+        "10": null,
+        "11": "TP_RST",
+        "12": "LCD_RST",
+        "13": null,
+        "14": null,
+        "15": null,
+        "16": null,
+        "17": null,
+        "18": "+3V3_EXT"
+      },
+      "at": [
+        204.47,
+        144.78
+      ],
+      "boardat": [
+        110.16,
+        105
+      ],
+      "rot": 0,
+      "schrot": 0
+    },
+    {
+      "ref": "R0",
+      "lib_id": "Device:R",
+      "value": "0R Messbruecke",
+      "footprint": "Resistor_SMD:R_0805_2012Metric",
+      "nets": {
+        "1": "+3V3_V6",
+        "2": "+3V3_EXT"
+      },
+      "at": [
+        151.13,
+        57.15
+      ],
+      "boardat": [
+        104.8,
+        96.8
+      ],
+      "rot": 0,
+      "schrot": 0
+    },
+    {
+      "ref": "R1",
+      "lib_id": "Device:R",
+      "value": "4k7",
+      "footprint": "Resistor_SMD:R_0805_2012Metric",
+      "nets": {
+        "1": "+3V3_EXT",
+        "2": "I2C_SDA"
+      },
+      "at": [
+        151.13,
+        214.63
+      ],
+      "boardat": [
+        108.4,
+        116
+      ],
+      "rot": 0,
+      "schrot": 0
+    },
+    {
+      "ref": "R2",
+      "lib_id": "Device:R",
+      "value": "4k7",
+      "footprint": "Resistor_SMD:R_0805_2012Metric",
+      "nets": {
+        "1": "+3V3_EXT",
+        "2": "I2C_SCL"
+      },
+      "at": [
+        184.15,
+        214.63
+      ],
+      "boardat": [
+        112,
+        116
+      ],
+      "rot": 0,
+      "schrot": 0
+    },
+    {
+      "ref": "R3",
+      "lib_id": "Device:R",
+      "value": "10k",
+      "footprint": "Resistor_SMD:R_0805_2012Metric",
+      "nets": {
+        "1": "+3V3_EXT",
+        "2": "MCP_RST"
+      },
+      "at": [
+        217.17,
+        214.63
+      ],
+      "boardat": [
+        115.6,
+        116
+      ],
+      "rot": 0,
+      "schrot": 0
+    },
+    {
+      "ref": "R5",
+      "lib_id": "Device:R",
+      "value": "10k",
+      "footprint": "Resistor_SMD:R_0805_2012Metric",
+      "nets": {
+        "1": "+3V3_EXT",
+        "2": "LCD_CS"
+      },
+      "at": [
+        250.19,
+        214.63
+      ],
+      "boardat": [
+        108.4,
+        120
+      ],
+      "rot": 0,
+      "schrot": 0
+    },
+    {
+      "ref": "R6",
+      "lib_id": "Device:R",
+      "value": "10k",
+      "footprint": "Resistor_SMD:R_0805_2012Metric",
+      "nets": {
+        "1": "+3V3_EXT",
+        "2": "LCD_RST"
+      },
+      "at": [
+        151.13,
+        250.19
+      ],
+      "boardat": [
+        112,
+        120
+      ],
+      "rot": 0,
+      "schrot": 0
+    },
+    {
+      "ref": "R7",
+      "lib_id": "Device:R",
+      "value": "10k",
+      "footprint": "Resistor_SMD:R_0805_2012Metric",
+      "nets": {
+        "1": "+3V3_EXT",
+        "2": "TP_RST"
+      },
+      "at": [
+        184.15,
+        250.19
+      ],
+      "boardat": [
+        115.6,
+        120
+      ],
+      "rot": 0,
+      "schrot": 0
+    },
+    {
+      "ref": "R8",
+      "lib_id": "Device:R",
+      "value": "33R",
+      "footprint": "Resistor_SMD:R_0805_2012Metric",
+      "nets": {
+        "1": "SPI_MOSI",
+        "2": "LCD_MOSI"
+      },
+      "at": [
+        320.04,
+        241.3
+      ],
+      "boardat": [
+        108.4,
+        96.8
+      ],
+      "rot": 0,
+      "schrot": 90
+    },
+    {
+      "ref": "R9",
+      "lib_id": "Device:R",
+      "value": "33R",
+      "footprint": "Resistor_SMD:R_0805_2012Metric",
+      "nets": {
+        "1": "SPI_SCK",
+        "2": "LCD_SCK"
+      },
+      "at": [
+        377.19,
+        241.3
+      ],
+      "boardat": [
+        112,
+        96.8
+      ],
+      "rot": 0,
+      "schrot": 90
+    },
+    {
+      "ref": "R10",
+      "lib_id": "Device:R",
+      "value": "10k",
+      "footprint": "Resistor_SMD:R_0805_2012Metric",
+      "nets": {
+        "1": "+3V3_EXT",
+        "2": "SD_CS"
+      },
+      "at": [
+        217.17,
+        250.19
+      ],
+      "boardat": [
+        108.4,
+        124
+      ],
+      "rot": 0,
+      "schrot": 0
+    },
+    {
+      "ref": "R11",
+      "lib_id": "Device:R",
+      "value": "100k",
+      "footprint": "Resistor_SMD:R_0805_2012Metric",
+      "nets": {
+        "1": "LCD_BL",
+        "2": "GND"
+      },
+      "at": [
+        250.19,
+        250.19
+      ],
+      "boardat": [
+        108.4,
+        128
+      ],
+      "rot": 0,
+      "schrot": 0
+    },
+    {
+      "ref": "C1",
+      "lib_id": "Device:C",
+      "value": "100n MCP",
+      "footprint": "Capacitor_SMD:C_0805_2012Metric",
+      "nets": {
+        "1": "+3V3_EXT",
+        "2": "GND"
+      },
+      "at": [
+        184.15,
+        57.15
+      ],
+      "boardat": [
+        115.6,
+        96.8
+      ],
+      "rot": 0,
+      "schrot": 0
+    },
+    {
+      "ref": "C2",
+      "lib_id": "Device:C",
+      "value": "100n Display",
+      "footprint": "Capacitor_SMD:C_0805_2012Metric",
+      "nets": {
+        "1": "+3V3_EXT",
+        "2": "GND"
+      },
+      "at": [
+        217.17,
+        57.15
+      ],
+      "boardat": [
+        112,
+        132
+      ],
+      "rot": 0,
+      "schrot": 0
+    },
+    {
+      "ref": "C3",
+      "lib_id": "Device:C",
+      "value": "10u Display",
+      "footprint": "Capacitor_SMD:C_0805_2012Metric",
+      "nets": {
+        "1": "+3V3_EXT",
+        "2": "GND"
+      },
+      "at": [
+        250.19,
+        57.15
+      ],
+      "boardat": [
+        112,
+        128
+      ],
+      "rot": 0,
+      "schrot": 0
+    },
+    {
+      "ref": "TP1",
+      "lib_id": "Connector:TestPoint",
+      "value": "+3V3_V6",
+      "footprint": "TestPoint:TestPoint_Pad_D1.0mm",
+      "nets": {
+        "1": "+3V3_V6"
+      },
+      "at": [
+        25.4,
+        238.76
+      ],
+      "boardat": [
+        101.9,
+        95.9
+      ],
+      "rot": 0,
+      "schrot": 0
+    },
+    {
+      "ref": "TP2",
+      "lib_id": "Connector:TestPoint",
+      "value": "+3V3_EXT",
+      "footprint": "TestPoint:TestPoint_Pad_D1.0mm",
+      "nets": {
+        "1": "+3V3_EXT"
+      },
+      "at": [
+        57.15,
+        238.76
+      ],
+      "boardat": [
+        118.5,
+        95.9
+      ],
+      "rot": 0,
+      "schrot": 0
+    },
+    {
+      "ref": "TP3",
+      "lib_id": "Connector:TestPoint",
+      "value": "+5V_V6",
+      "footprint": "TestPoint:TestPoint_Pad_D1.0mm",
+      "nets": {
+        "1": "+5V_V6"
+      },
+      "at": [
+        88.9,
+        238.76
+      ],
+      "boardat": [
+        108,
+        134.8
+      ],
+      "rot": 0,
+      "schrot": 0
+    },
+    {
+      "ref": "TP4",
+      "lib_id": "Connector:TestPoint",
+      "value": "GND",
+      "footprint": "TestPoint:TestPoint_Pad_D1.0mm",
+      "nets": {
+        "1": "GND"
+      },
+      "at": [
+        114.3,
+        238.76
+      ],
+      "boardat": [
+        112,
+        134.8
+      ],
+      "rot": 0,
+      "schrot": 0
+    },
+    {
+      "ref": "J6",
+      "lib_id": "Connector_Generic:Conn_01x06",
+      "value": "W5500 / Reihe 1",
+      "footprint": "",
+      "nets": {
+        "1": "GND",
+        "2": "GND",
+        "3": "SPI_MOSI",
+        "4": "SPI_SCK",
+        "5": "ETH_CS",
+        "6": "ETH_IRQ"
+      },
+      "at": [
+        104.14,
+        57.15
+      ],
+      "boardat": [
+        0,
+        0
+      ],
+      "rot": 0,
+      "schrot": 0
+    },
+    {
+      "ref": "J7",
+      "lib_id": "Connector_Generic:Conn_01x06",
+      "value": "W5500 / Reihe 2",
+      "footprint": "",
+      "nets": {
+        "1": "GND",
+        "2": "+3V3_V6",
+        "3": "+3V3_V6",
+        "4": null,
+        "5": "ETH_RST",
+        "6": "SPI_MISO"
+      },
+      "at": [
+        104.14,
+        110.49
+      ],
+      "boardat": [
+        0,
+        0
+      ],
+      "rot": 0,
+      "schrot": 0
+    }
+  ]
+}

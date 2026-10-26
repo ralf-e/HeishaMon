@@ -1,0 +1,839 @@
+{
+  "source_url": "https://github.com/heishamon/HeishaMon/blob/b3ef43691f21985c851903d69a0f2e8647ed31f8/HeatPumpType.md",
+  "upstream_commit": "b3ef43691f21985c851903d69a0f2e8647ed31f8",
+  "sha256": "e60deeb041e4a556622c0508614a2b401524733967868655e913b91b9aeffa1b",
+  "count": 83,
+  "duplicate_signatures": {},
+  "rows": [
+    {
+      "id": 0,
+      "key": "E2 CF 0B 13 33 32 D1 0C 16 33",
+      "idu": "Monoblock",
+      "odu": "WH-MDC05H3E5",
+      "kit": "Monoblock",
+      "power": "5",
+      "phase": "1ph",
+      "type": "HP"
+    },
+    {
+      "id": 1,
+      "key": "E2 CF 0B 14 33 42 D1 0B 17 33",
+      "idu": "Monoblock",
+      "odu": "WH-MDC07H3E5",
+      "kit": "Monoblock",
+      "power": "7",
+      "phase": "1ph",
+      "type": "HP"
+    },
+    {
+      "id": 2,
+      "key": "E2 CF 0D 77 09 12 D0 0B 05 11",
+      "idu": "WH-SXC09H3E5",
+      "odu": "WH-UX09HE5",
+      "kit": "KIT-WXC09H3E5",
+      "power": "9",
+      "phase": "1ph",
+      "type": "T-CAP"
+    },
+    {
+      "id": 3,
+      "key": "E2 CF 0C 88 05 12 D0 0B 97 05",
+      "idu": "WH-SDC09H3E8",
+      "odu": "WH-UD09HE8",
+      "kit": "KIT-WC09H3E8",
+      "power": "9",
+      "phase": "3ph",
+      "type": "HP"
+    },
+    {
+      "id": 4,
+      "key": "E2 CF 0D 85 05 12 D0 0C 94 05",
+      "idu": "WH-SXC09H3E8",
+      "odu": "WH-UX09HE8",
+      "kit": "KIT-WXC09H9E8",
+      "power": "9",
+      "phase": "3ph",
+      "type": "T-CAP"
+    },
+    {
+      "id": 5,
+      "key": "E2 CF 0D 86 05 12 D0 0C 95 05",
+      "idu": "WH-SXC12H9E8",
+      "odu": "WH-UX12HE8",
+      "kit": "KIT-WXC12H9E8",
+      "power": "12",
+      "phase": "3ph",
+      "type": "T-CAP"
+    },
+    {
+      "id": 6,
+      "key": "E2 CF 0D 87 05 12 D0 0C 96 05",
+      "idu": "WH-SXC16H9E8",
+      "odu": "WH-UX16HE8",
+      "kit": "KIT-WXC16H9E8",
+      "power": "16",
+      "phase": "3ph",
+      "type": "T-CAP"
+    },
+    {
+      "id": 7,
+      "key": "E2 CE 0D 71 81 72 CE 0C 92 81",
+      "idu": "WH-SDC05H3E5",
+      "odu": "WH-UD05HE5",
+      "kit": "KIT-WC05H3E5",
+      "power": "5",
+      "phase": "1ph",
+      "type": "HP"
+    },
+    {
+      "id": 8,
+      "key": "62 D2 0B 43 54 42 D2 0B 72 66",
+      "idu": "WH-SDC0709J3E5",
+      "odu": "WH-UD09JE5",
+      "kit": "KIT-WC09J3E5",
+      "power": "9",
+      "phase": "1ph",
+      "type": "HP"
+    },
+    {
+      "id": 9,
+      "key": "C2 D3 0B 33 65 B2 D3 0B 94 65",
+      "idu": "Monoblock",
+      "odu": "WH-MDC05J3E5",
+      "kit": "Monoblock",
+      "power": "5",
+      "phase": "1ph",
+      "type": "HP"
+    },
+    {
+      "id": 10,
+      "key": "E2 CF 0B 15 33 42 D1 0B 18 33",
+      "idu": "Monoblock",
+      "odu": "WH-MDC09H3E5",
+      "kit": "Monoblock",
+      "power": "9",
+      "phase": "1ph",
+      "type": "HP"
+    },
+    {
+      "id": 11,
+      "key": "E2 CF 0B 41 34 82 D1 0B 31 35",
+      "idu": "Monoblock",
+      "odu": "WH-MXC09H3E5",
+      "kit": "Monoblock",
+      "power": "9",
+      "phase": "1ph",
+      "type": "T-CAP"
+    },
+    {
+      "id": 12,
+      "key": "62 D2 0B 45 54 42 D2 0B 47 55",
+      "idu": "WH-ADC0309J3E5",
+      "odu": "WH-UD09JE5",
+      "kit": "KIT-ADC09JE5",
+      "power": "9",
+      "phase": "1ph",
+      "type": "HP - All-In-One"
+    },
+    {
+      "id": 13,
+      "key": "E2 CF 0C 74 09 12 D0 0D 95 05",
+      "idu": "WH-ADC0916H9E8",
+      "odu": "WH-UX12HE8",
+      "kit": "KIT-AXC12HE8",
+      "power": "12",
+      "phase": "3ph",
+      "type": "T-CAP - All-In-One"
+    },
+    {
+      "id": 14,
+      "key": "E2 CF 0B 82 05 12 D0 0C 91 05",
+      "idu": "WH-SQC09H3E8",
+      "odu": "WH-UQ09HE8",
+      "kit": "KIT-WQC09H3E8",
+      "power": "9",
+      "phase": "3ph",
+      "type": "T-CAP - Super Quiet"
+    },
+    {
+      "id": 15,
+      "key": "E2 CF 0C 55 14 12 D0 0B 15 08",
+      "idu": "WH-SDC09H3E5",
+      "odu": "WH-UD09HE5",
+      "kit": "KIT-WC09H3E5",
+      "power": "9",
+      "phase": "1 ph",
+      "type": "HP"
+    },
+    {
+      "id": 16,
+      "key": "E2 CF 0C 43 00 12 D0 0B 15 08",
+      "idu": "WH-ADC0309H3E5",
+      "odu": "WH-UD09HE5",
+      "kit": "KIT-ADC09HE5",
+      "power": "9",
+      "phase": "1 ph",
+      "type": "HP - All-In-One"
+    },
+    {
+      "id": 17,
+      "key": "62 D2 0B 45 54 32 D2 0C 45 55",
+      "idu": "WH-ADC0309J3E5",
+      "odu": "WH-UD05JE5",
+      "kit": "KIT-ADC05JE5",
+      "power": "5",
+      "phase": "1ph",
+      "type": "HP - All-In-One"
+    },
+    {
+      "id": 18,
+      "key": "62 D2 0B 43 54 42 D2 0C 46 55",
+      "idu": "WH-SDC0709J3E5",
+      "odu": "WH-UD07JE5",
+      "kit": "KIT-WC07J3E5",
+      "power": "7",
+      "phase": "1 ph",
+      "type": "HP"
+    },
+    {
+      "id": 19,
+      "key": "E2 CF 0C 54 14 12 D0 0B 14 08",
+      "idu": "WH-SDC07H3E5-1",
+      "odu": "WH-UD07HE5-1",
+      "kit": "KIT-WC07H3E5-1",
+      "power": "7",
+      "phase": "1 ph",
+      "type": "HP"
+    },
+    {
+      "id": 20,
+      "key": "C2 D3 0B 34 65 B2 D3 0B 95 65",
+      "idu": "Monoblock",
+      "odu": "WH-MDC07J3E5",
+      "kit": "Monoblock",
+      "power": "7",
+      "phase": "1ph",
+      "type": "HP"
+    },
+    {
+      "id": 21,
+      "key": "C2 D3 0B 35 65 B2 D3 0B 96 65",
+      "idu": "Monoblock",
+      "odu": "WH-MDC09J3E5",
+      "kit": "Monoblock",
+      "power": "9",
+      "phase": "1ph",
+      "type": "HP"
+    },
+    {
+      "id": 22,
+      "key": "62 D2 0B 41 54 32 D2 0C 45 55",
+      "idu": "WH-SDC0305J3E5",
+      "odu": "WH-UD05JE5",
+      "kit": "KIT-WC05J3E5",
+      "power": "5",
+      "phase": "1ph",
+      "type": "HP"
+    },
+    {
+      "id": 23,
+      "key": "32 D4 0B 87 84 73 90 0C 84 84",
+      "idu": "Monoblock",
+      "odu": "WH-MXC09J3E8",
+      "kit": "Monoblock",
+      "power": "9",
+      "phase": "3ph",
+      "type": "T-CAP"
+    },
+    {
+      "id": 24,
+      "key": "32 D4 0B 88 84 73 90 0C 85 84",
+      "idu": "Monoblock",
+      "odu": "WH-MXC12J9E8",
+      "kit": "Monoblock",
+      "power": "12",
+      "phase": "3ph",
+      "type": "T-CAP"
+    },
+    {
+      "id": 25,
+      "key": "E2 CF 0B 75 09 12 D0 0C 06 11",
+      "idu": "WH-ADC1216H6E5",
+      "odu": "WH-UD12HE5",
+      "kit": "KIT-ADC12HE5",
+      "power": "12",
+      "phase": "1ph",
+      "type": "T-CAP"
+    },
+    {
+      "id": 26,
+      "key": "42 D4 0B 83 71 42 D2 0C 46 55",
+      "idu": "WH-ADC0309J3E5C",
+      "odu": "WH-UD07JE5",
+      "kit": "KIT-ADC07JE5C",
+      "power": "7",
+      "phase": "1ph",
+      "type": "HP - All-In-One Compact"
+    },
+    {
+      "id": 27,
+      "key": "C2 D3 0C 34 65 B2 D3 0B 95 65",
+      "idu": "Monoblock",
+      "odu": "WH-MDC07J3E5",
+      "kit": "Monoblock",
+      "power": "7",
+      "phase": "1ph",
+      "type": "HP (new version)"
+    },
+    {
+      "id": 28,
+      "key": "C2 D3 0C 33 65 B2 D3 0B 94 65",
+      "idu": "Monoblock",
+      "odu": "WH-MDC05J3E5",
+      "kit": "Monoblock",
+      "power": "5",
+      "phase": "1ph",
+      "type": "HP (new version)"
+    },
+    {
+      "id": 29,
+      "key": "E2 CF 0B 83 05 12 D0 0D 92 05",
+      "idu": "WH-SQC12H9E8",
+      "odu": "WH-UQ12HE8",
+      "kit": "KIT-WQC12H9E8",
+      "power": "12",
+      "phase": "3ph",
+      "type": "T-CAP - Super Quiet"
+    },
+    {
+      "id": 30,
+      "key": "E2 CF 0C 78 09 12 D0 0B 06 11",
+      "idu": "WH-SXC12H6E5",
+      "odu": "WH-UX12HE5",
+      "kit": "KIT-WXC12H6E5",
+      "power": "12",
+      "phase": "1ph",
+      "type": "T-CAP"
+    },
+    {
+      "id": 31,
+      "key": "C2 D3 0C 35 65 B2 D3 0B 96 65",
+      "idu": "Monoblock",
+      "odu": "WH-MDC09J3E5",
+      "kit": "Monoblock",
+      "power": "9",
+      "phase": "1ph",
+      "type": "HP (new version?)"
+    },
+    {
+      "id": 32,
+      "key": "32 D4 0B 99 77 62 90 0B 01 78",
+      "idu": "Monoblock",
+      "odu": "WH-MXC09J3E5",
+      "kit": "Monoblock",
+      "power": "9",
+      "phase": "1ph",
+      "type": "T-CAP"
+    },
+    {
+      "id": 33,
+      "key": "42 D4 0B 15 76 12 D0 0B 10 11",
+      "idu": "WH-ADC1216H6E5C",
+      "odu": "WH-UD12HE5",
+      "kit": "KIT-ADC12HE5C-CL",
+      "power": "12",
+      "phase": "1ph",
+      "type": "HP - All-In-One Compact"
+    },
+    {
+      "id": 34,
+      "key": "E2 D5 0C 29 99 83 92 0C 28 98",
+      "idu": "WH-ADC0509L3E5",
+      "odu": "WH-WDG07LE5",
+      "kit": "KIT-ADC07L3E5",
+      "power": "7",
+      "phase": "1ph",
+      "type": "HP - All-In-One L-series"
+    },
+    {
+      "id": 35,
+      "key": "E2 CF 0D 85 05 12 D0 0E 94 05",
+      "idu": "WH-SXC09H3E8",
+      "odu": "WH-UX09HE8",
+      "kit": "KIT-WXC09H3E8",
+      "power": "9",
+      "phase": "3ph",
+      "type": "T-CAP - new version"
+    },
+    {
+      "id": 36,
+      "key": "E2 D5 0D 36 99 02 D6 0F 67 95",
+      "idu": "WH-ADC0309K3E5AN",
+      "odu": "WH-UDZ07KE5",
+      "kit": "KIT-ADC07K3E5AN",
+      "power": "7",
+      "phase": "1ph",
+      "type": "HP - All-In-One K-series - AN"
+    },
+    {
+      "id": 37,
+      "key": "E2 D5 0B 08 95 02 D6 0E 66 95",
+      "idu": "WH-SDC0309K3E5",
+      "odu": "WH-UDZ05KE5",
+      "kit": "KIT-WC05K3E5",
+      "power": "5",
+      "phase": "1ph",
+      "type": "HP - split K-series"
+    },
+    {
+      "id": 38,
+      "key": "E2 D5 0B 34 99 83 92 0C 29 98",
+      "idu": "WH-SDC0509L3E5",
+      "odu": "WH-WDG09LE5",
+      "kit": "KIT-WC09L3E5",
+      "power": "9",
+      "phase": "1 ph",
+      "type": "HP - split L-series 3kW elec heating"
+    },
+    {
+      "id": 39,
+      "key": "E2 CF 0C 89 05 12 D0 0C 98 05",
+      "idu": "WH-SDC12H9E8",
+      "odu": "WH-UD12HE8",
+      "kit": "KIT-WC12H9E8",
+      "power": "12",
+      "phase": "3ph",
+      "type": "HP"
+    },
+    {
+      "id": 40,
+      "key": "E2 D5 0B 08 95 02 D6 0E 67 95",
+      "idu": "WH-SDC0309K3E5",
+      "odu": "WH-UDZ07KE5",
+      "kit": "KIT-WC07K3E5",
+      "power": "7",
+      "phase": "1ph",
+      "type": "HP - split K-series"
+    },
+    {
+      "id": 41,
+      "key": "E2 CF 0C 74 09 12 D0 0C 96 05",
+      "idu": "WH-ADC0916H9E8",
+      "odu": "WH-UX16HE8",
+      "kit": "KIT-AXC16HE8",
+      "power": "16",
+      "phase": "3ph",
+      "type": "T-CAP - All-In-One"
+    },
+    {
+      "id": 42,
+      "key": "E2 CF 0C 74 09 12 D0 0E 95 05",
+      "idu": "WH-ADC0912H9E8",
+      "odu": "WH-UX12HE8",
+      "kit": "KIT-AXC12HE8",
+      "power": "12",
+      "phase": "3ph",
+      "type": "T-CAP - All-In-One"
+    },
+    {
+      "id": 43,
+      "key": "32 D4 0B 89 84 73 90 0C 86 84",
+      "idu": "Monoblock",
+      "odu": "WH-MXC16J9E8",
+      "kit": "Monoblock",
+      "power": "16",
+      "phase": "3ph",
+      "type": "T-CAP"
+    },
+    {
+      "id": 44,
+      "key": "32 D4 0B 00 78 62 90 0B 02 78",
+      "idu": "Monoblock",
+      "odu": "WH-MXC12J6E5",
+      "kit": "Monoblock",
+      "power": "12",
+      "phase": "1ph",
+      "type": "T-CAP"
+    },
+    {
+      "id": 45,
+      "key": "E2 CF 0B 82 05 12 D0 0D 91 05",
+      "idu": "WH-SQC09H3E8",
+      "odu": "WH-UQ09HE8",
+      "kit": "KIT-WQC09H3E8",
+      "power": "9",
+      "phase": "3ph",
+      "type": "T-CAP - Super Quiet revised model"
+    },
+    {
+      "id": 46,
+      "key": "E2 D5 0D 99 94 02 D6 0D 68 95",
+      "idu": "WH-ADC0309K3E5",
+      "odu": "WH-UDZ09KE5",
+      "kit": "KIT-ADC09K3E5",
+      "power": "9",
+      "phase": "1ph",
+      "type": "HP - K-series All-in-One R32"
+    },
+    {
+      "id": 47,
+      "key": "E2 CF 0C 74 09 12 D0 0C 95 05",
+      "idu": "WH-ADC0916H9E8",
+      "odu": "WH-UX12HE8",
+      "kit": "KIT-AXC12HE8",
+      "power": "12",
+      "phase": "3ph",
+      "type": "T-CAP - All-In-One"
+    },
+    {
+      "id": 48,
+      "key": "E2 D5 0B 34 99 83 92 0C 28 98",
+      "idu": "WH-SDC0509L3E5",
+      "odu": "WH-WDG07LE5",
+      "kit": "KIT-WC07L3E5",
+      "power": "7",
+      "phase": "1 ph",
+      "type": "HP - split L-series 3kW elec heating"
+    },
+    {
+      "id": 49,
+      "key": "E2 CF 0D 77 09 12 D0 0C 05 11",
+      "idu": "WH-SXC09H3E5",
+      "odu": "WH-UX09HE5",
+      "kit": "KIT-WXC09H3E5",
+      "power": "9",
+      "phase": "1ph",
+      "type": "T-CAP"
+    },
+    {
+      "id": 50,
+      "key": "E2 CF 0B 44 34 12 D0 0C 34 35",
+      "idu": "Monoblock",
+      "odu": "WH-MXC12H9E8",
+      "kit": "Monoblock",
+      "power": "12",
+      "phase": "3ph",
+      "type": "T-CAP"
+    },
+    {
+      "id": 51,
+      "key": "E2 D5 0C 67 00 83 92 0C 27 98",
+      "idu": "WH-ADC0509L3E5AN",
+      "odu": "WH-WDG05LE5",
+      "kit": "KIT-ADC05L3E5AN",
+      "power": "5",
+      "phase": "1ph",
+      "type": "HP - split L-series 3kW elec heating - AN"
+    },
+    {
+      "id": 52,
+      "key": "E2 D5 0B 34 99 83 92 0C 27 98",
+      "idu": "WH-SDC0509L3E5",
+      "odu": "WH-WDG05LE5",
+      "kit": "KIT-WC05L3E5",
+      "power": "5",
+      "phase": "1ph",
+      "type": "HP - split L-series 3kW elec heating"
+    },
+    {
+      "id": 53,
+      "key": "42 D4 0B 83 71 32 D2 0C 44 55",
+      "idu": "WH-ADC0309J3E5C",
+      "odu": "WH-UD03JE5",
+      "kit": "KIT-ADC03JE5C-S",
+      "power": "3.2",
+      "phase": "1ph",
+      "type": "HP - All-In-One Compact"
+    },
+    {
+      "id": 54,
+      "key": "E2 CF 0C 74 09 12 D0 0E 94 05",
+      "idu": "WH-ADC0916H9E8",
+      "odu": "WH-UX09HE8",
+      "kit": "KIT-AXC9HE8",
+      "power": "9",
+      "phase": "3ph",
+      "type": "T-CAP - All-In-One"
+    },
+    {
+      "id": 55,
+      "key": "12 D7 0D 98 11 33 94 0C 83 10",
+      "idu": "WH-ADC0316M9E8AN2",
+      "odu": "WH-WXG09ME8",
+      "kit": "Monoblock",
+      "power": "9",
+      "phase": "2ph",
+      "type": "T-CAP - M-series DHW 185l"
+    },
+    {
+      "id": 56,
+      "key": "E2 D5 0B 08 95 02 D6 0F 67 95",
+      "idu": "WH-SDC0309K3E5",
+      "odu": "WH-UDZ07KE5",
+      "kit": "KIT-SDC07KE5",
+      "power": "7",
+      "phase": "1ph",
+      "type": "HP - split K-series (sold in Poland)"
+    },
+    {
+      "id": 57,
+      "key": "E2 D5 0D 36 99 02 D6 10 66 95",
+      "idu": "WH-ADC0309K3E5AN",
+      "odu": "WH-UDZ05KE5",
+      "kit": "KIT-ADC05K3E5AN",
+      "power": "5",
+      "phase": "1ph",
+      "type": "HP - All-In-One K-series - AN"
+    },
+    {
+      "id": 58,
+      "key": "E2 D5 0F 99 94 02 D6 10 68 95",
+      "idu": "WH-ADC0309K3E5",
+      "odu": "WH-UDZ09KE5",
+      "kit": "KIT-ADC09K3E5",
+      "power": "9",
+      "phase": "1ph",
+      "type": "HP - split K-series 9KW"
+    },
+    {
+      "id": 59,
+      "key": "E2 D5 0C 67 00 83 92 0C 28 98",
+      "idu": "WH-ADC0509L3E5AN",
+      "odu": "WH-WDG07LE5",
+      "kit": "KIT-ADC07L3E5AN",
+      "power": "7",
+      "phase": "1ph",
+      "type": "HP - All-In-One L-series - AN"
+    },
+    {
+      "id": 60,
+      "key": "E2 CF 0D 86 05 12 D0 0E 95 05",
+      "idu": "WH-SXC12H9E8",
+      "odu": "WH-UX12HE8",
+      "kit": "KIT-WXC12H9E8",
+      "power": "12",
+      "phase": "3ph",
+      "type": "T-CAP"
+    },
+    {
+      "id": 61,
+      "key": "12 D7 0C 98 14 35 94 0D 83 10",
+      "idu": "WH-SDC0316M9E8",
+      "odu": "WH-WXG09ME8",
+      "kit": "KIT-SDCWXG09",
+      "power": "9",
+      "phase": "3ph",
+      "type": "T-CAP - M-series"
+    },
+    {
+      "id": 62,
+      "key": "E2 D5 0C 08 95 02 D6 10 67 95",
+      "idu": "WH-SDC0309K3E5",
+      "odu": "WH-UDZ07KE5",
+      "kit": "KIT-SDC07KE5",
+      "power": "7",
+      "phase": "1ph",
+      "type": "HP - split K-series 3kW elec heating"
+    },
+    {
+      "id": 63,
+      "key": "C2 D3 0D 35 65 B2 D3 0B 96 65",
+      "idu": "Monoblock",
+      "odu": "WH-MDC09J3E5-1",
+      "kit": "Monoblock",
+      "power": "9",
+      "phase": "1ph",
+      "type": "HP"
+    },
+    {
+      "id": 64,
+      "key": "E2 D5 0C 29 99 83 92 0C 29 98",
+      "idu": "WH-ADC0509L3E5",
+      "odu": "WH-WDG09LE5",
+      "kit": "KIT-ADC09L3E5",
+      "power": "9",
+      "phase": "1ph",
+      "type": "HP - All-In-One L-series"
+    },
+    {
+      "id": 65,
+      "key": "62 D2 0B 45 54 42 D2 0B 72 66",
+      "idu": "WH-ADC0309J3E5",
+      "odu": "WH-UD09JE5-1",
+      "kit": "KIT-ADC09JE5",
+      "power": "9",
+      "phase": "1ph",
+      "type": "HP - All-In-One J-series"
+    },
+    {
+      "id": 66,
+      "key": "E2 CF 0B 82 09 12 D0 0B 10 11",
+      "idu": "WH-SDC12H6E5",
+      "odu": "WH-UD12HE5",
+      "kit": "KIT-WC012H6E5",
+      "power": "12",
+      "phase": "1ph",
+      "type": "HP"
+    },
+    {
+      "id": 67,
+      "key": "42 D4 0B 83 71 32 D2 0C 45 55",
+      "idu": "WH-ADC0309J3E5C",
+      "odu": "WH-UD05JE5",
+      "kit": "KIT-ADC05JE5C",
+      "power": "5",
+      "phase": "1ph",
+      "type": "HP - All-In-One J-series"
+    },
+    {
+      "id": 68,
+      "key": "12 D7 0B 47 19 37 94 0E 83 10",
+      "idu": "WH-ADC0316M9E83",
+      "odu": "WH-WXG09ME8",
+      "kit": "Monoblock",
+      "power": "9",
+      "phase": "3ph",
+      "type": "T-CAP - M-series DHW 260l"
+    },
+    {
+      "id": 69,
+      "key": "E2 D5 0D 00 09 43 D6 0E 07 09",
+      "idu": "WH-SDC09K3E8",
+      "odu": "WH-UDZ09KE8",
+      "kit": "KIT-WC09K3E8",
+      "power": "9",
+      "phase": "3ph",
+      "type": "HP"
+    },
+    {
+      "id": 70,
+      "key": "E2 CF 0B 84 05 12 D0 0B 93 05",
+      "idu": "WH-SQC16H9E8",
+      "odu": "WH-UQ16HE8",
+      "kit": "KIT-WQC16H9E8",
+      "power": "16",
+      "phase": "3ph",
+      "type": "T-CAP - Bi-bloc H Serie"
+    },
+    {
+      "id": 71,
+      "key": "E2 D5 0B 35 99 83 92 0D 29 98",
+      "idu": "WH-SDC0509L6E5",
+      "odu": "WH-WDG09LE5",
+      "kit": "KIT-WC09L6E5",
+      "power": "9",
+      "phase": "1 ph",
+      "type": "HP - split L-series 6kW elec heating"
+    },
+    {
+      "id": 72,
+      "key": "12 D7 0B 98 14 35 94 0D 83 10",
+      "idu": "WH-SDC0316M9E8",
+      "odu": "WH-WXG09ME8",
+      "kit": "Monoblock",
+      "power": "9",
+      "phase": "3ph",
+      "type": "T-CAP - M-series"
+    },
+    {
+      "id": 73,
+      "key": "E2 CF 0C 77 09 12 D0 0B 05 11",
+      "idu": "WH-SXC09H3E5",
+      "odu": "WH-UX09HE5",
+      "kit": "KIT-WXC09H3E5",
+      "power": "9",
+      "phase": "1ph",
+      "type": "T-CAP"
+    },
+    {
+      "id": 74,
+      "key": "C2 D3 0D 33 65 B2 D3 0B 94 65",
+      "idu": "Monoblock",
+      "odu": "WH-MDC05J3E5",
+      "kit": "Monoblock",
+      "power": "5",
+      "phase": "1ph",
+      "type": "HP - J Series"
+    },
+    {
+      "id": 75,
+      "key": "12 D7 0D 98 14 37 94 0E 84 10",
+      "idu": "WH-SDC0316M9E8",
+      "odu": "WH-WXG12ME8",
+      "kit": "KIT-SDCWXG12",
+      "power": "12",
+      "phase": "3ph",
+      "type": "T-CAP - M-series"
+    },
+    {
+      "id": 76,
+      "key": "12 D7 0D 98 11 39 94 0F 84 10",
+      "idu": "WH-ADC0316M9E8AN2",
+      "odu": "WH-WXG12ME8",
+      "kit": "Monoblock",
+      "power": "12",
+      "phase": "3ph",
+      "type": "T-CAP - M-series DHW 185l"
+    },
+    {
+      "id": 77,
+      "key": "12 D7 0D 85 11 37 94 0E 84 10",
+      "idu": "Monoblock",
+      "odu": "WH-WXG12ME8",
+      "kit": "Monoblock",
+      "power": "12",
+      "phase": "3ph",
+      "type": "T-CAP - M-series"
+    },
+    {
+      "id": 78,
+      "key": "E2 D5 0B 34 99 83 92 0D 29 98",
+      "idu": "WH-SDC0509L3E5",
+      "odu": "WH-WDG09LE5",
+      "kit": "KIT-WC09L3E5",
+      "power": "9",
+      "phase": "1 ph",
+      "type": "HP - split L-series 3kW elec heating - revised model"
+    },
+    {
+      "id": 79,
+      "key": "E2 D5 0B 12 95 02 D6 0F 70 95",
+      "idu": "WH-SXC12K6E5",
+      "odu": "WH-UXZ12KE5",
+      "kit": "KIT-WXC12K6E5",
+      "power": "12",
+      "phase": "1 ph",
+      "type": "T-CAP Bi-bloc K-series"
+    },
+    {
+      "id": 80,
+      "key": "12 D7 0C 98 14 33 94 0C 83 10",
+      "idu": "WH-SDC0316M9E8",
+      "odu": "WH-WXG09ME8",
+      "kit": "Monoblock",
+      "power": "9",
+      "phase": "3ph",
+      "type": "T-CAP - M-series"
+    },
+    {
+      "id": 81,
+      "key": "E2 D5 0D 99 94 02 D6 10 67 95",
+      "idu": "WH-ADC0309K3E5",
+      "odu": "WH-UDZ07KE5",
+      "kit": "KIT-ADC07K3E5",
+      "power": "7",
+      "phase": "1ph",
+      "type": "HP - All-In-One K-series"
+    },
+    {
+      "id": 82,
+      "key": "E2 D5 0F 36 99 02 D6 10 68 95",
+      "idu": "WH-ADC0309K3E5AN",
+      "odu": "WH-UDZ09KE5",
+      "kit": "KIT-ADC09K3E5AN",
+      "power": "9",
+      "phase": "1ph",
+      "type": "HP - All-In-One K-series - DHW 185l - AN"
+    }
+  ]
+}

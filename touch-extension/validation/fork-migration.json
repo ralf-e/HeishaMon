@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-26",
+  "upstream": "b3ef43691f21985c851903d69a0f2e8647ed31f8",
+  "branch": "touch-display",
+  "extension": "0.1.0-dev.7",
+  "integration_tests": 6,
+  "preparation_tests": 3,
+  "cpp_checks": "policy/choice/status and model: clangd C++17 checks passed",
+  "model_records": 83,
+  "model_duplicates": 0,
+  "preview": "passed",
+  "powershell_syntax": "passed",
+  "upstream_sketch_modified": false,
+  "full_esp32_build": "not yet verified for dev.7",
+  "hardware_tests": "not performed",
+  "pre_commit": "not installed in local Python; command attempted"
+}

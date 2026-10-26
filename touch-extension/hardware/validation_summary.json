@@ -1,0 +1,18 @@
+{
+  "nets_verified": 21,
+  "components": 25,
+  "erc_violations": 0,
+  "placement_clearance_violations": 0,
+  "unconnected_groups": 0,
+  "routing_complete": true,
+  "tracks": 199,
+  "vias": 64,
+  "ground_zones": 2,
+  "layout_revision": "0.6",
+  "manufacturing_release": false,
+  "mounting_transform_verified": true,
+  "board_mm": [
+    23,
+    41
+  ]
+}

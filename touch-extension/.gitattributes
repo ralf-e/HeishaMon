@@ -1,0 +1,11 @@
+* text=auto eol=lf
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.zip binary
+*.bin binary
+hardware/** -text
+manufacturing/** -text
+vendor/** -text
+upstream-reference/** -text

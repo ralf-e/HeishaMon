@@ -1,0 +1,256 @@
+--- a/HeishaMon/HeishaMon.ino
++++ b/HeishaMon/HeishaMon.ino
+@@ -45,6 +45,15 @@
+ #include "commands.h"
+ #include "rules.h"
+ #include "version.h"
++#include "hmx.h"
++#if defined(ESP32) && HMX_ENABLED
++#define HMX_PASSIVE hmxListenOnly()
++#define HMX_ENABLE_WRITE(value) hmxWriteEnable(value)
++#else
++#define HMX_PASSIVE heishamonSettings.listenonly
++#define HMX_ENABLE_WRITE(value) digitalWrite(ENABLEPIN, value)
++#endif
++// HMX integration v1
+ 
+ DNSServer dnsServer;
+ 
+@@ -530,7 +539,7 @@
+       //use this to receive valid heishamon raw data from other heishamon to debug this OT code
+ //#define RAWDEBUG
+ #ifdef RAWDEBUG
+-      if ( heishamonSettings.listenonly) {
++      if ( HMX_PASSIVE) {
+         mqtt_client.subscribe((char*)"panasonic_heat_pump/raw/data"); //subscribe to raw heatpump data over MQTT
+       }
+ #endif
+@@ -764,6 +773,7 @@
+ 
+       if (data_length == DATASIZE)  {  //receive a full data block
+         if  (data[3] == 0x10) { //decode the normal data block
++          hmxRx(0);
+           decode_heatpump_data(data, actData, mqtt_client, log_message, heishamonSettings.mqtt_topic_base, heishamonSettings.updateAllTime);
+           if ( (!extraDataBlockAvailable) && ((actData[0] == 0x71) && (actData[0xc7] >= 3)) ) { //do we have valid header and byte 0xc7 is more or equal 3 then assume K&L and more series
+             log_message(_F("Extra data available on this heatpump"));
+@@ -780,6 +790,7 @@
+           return true;
+         } else if (data[3] == 0x21) { //decode the new model extra data block
+           extraDataBlockAvailable = true; //set the flag to true so we know we can request this data always
++          hmxRx(1);
+           decode_heatpump_data_extra(data, actDataExtra, mqtt_client, log_message, heishamonSettings.mqtt_topic_base, heishamonSettings.updateAllTime);
+           #ifdef RAWDEBUG
+           {
+@@ -803,7 +814,8 @@
+       }
+       else if (data_length == OPTDATASIZE ) { //optional pcb acknowledge answer
+         log_message(_F("Received optional PCB ack answer. Decoding this in OPT topics."));
+-        decode_optional_heatpump_data(data, actOptData, mqtt_client, log_message, heishamonSettings.mqtt_topic_base, heishamonSettings.updateAllTime);
++        hmxRx(2);
++          decode_optional_heatpump_data(data, actOptData, mqtt_client, log_message, heishamonSettings.mqtt_topic_base, heishamonSettings.updateAllTime);
+         data_length = 0;
+         return true;
+       }
+@@ -853,6 +865,7 @@
+   byte localPCBQuery[OPTIONALPCBQUERYSIZE] = {0xF1, 0x11, 0x01, 0x50, 0x00, 0x00, 0x40, 0xFF, 0xFF, 0xE5, 0xFF, 0xFF, 0x00, 0xFF, 0xEB, 0xFF, 0xFF, 0x00, 0x00};
+   
+   for (;;) {
++    hmxTxLock();
+     unsigned long now = millis();
+ 
+     if (sending && ((unsigned long)(millis() - sendCommandReadTime) > (SERIALTIMEOUT + OPTIONALPCBQUERYTIME) )) {
+@@ -864,7 +877,7 @@
+     // highest priority: optional PCB query every second
+     if ((!sending) && ((unsigned long)(now - lastPCBSendTime) >= OPTIONALPCBQUERYTIME)) {
+       lastPCBSendTime = now;
+-      if (heishamonSettings.optionalPCB && !heishamonSettings.listenonly) {
++      if (heishamonSettings.optionalPCB && !HMX_PASSIVE) {
+         sending = true;
+         sendCommandReadTime = now;
+         xQueuePeek(pcbQueue, localPCBQuery, 0);
+@@ -882,7 +895,7 @@
+     }
+ 
+     // second priority: static heatpump query every waitTime seconds
+-    if ((!sending) && (!heishamonSettings.listenonly)) {
++    if ((!sending) && (!HMX_PASSIVE)) {
+       if ((unsigned long)(now - lastHPSendTime) >= (1000 * heishamonSettings.waitTime)) {
+         sending = true;
+         sendCommandReadTime = now;
+@@ -896,7 +909,7 @@
+     }
+ 
+     // third priority: extra data block query every waitTime seconds (offset from basic query)
+-    if ((!sending) && (!heishamonSettings.listenonly) && extraDataBlockAvailable) {
++    if ((!sending) && (!HMX_PASSIVE) && extraDataBlockAvailable) {
+       if ((unsigned long)(now - lastHPExtraSendTime) >= (1000 * heishamonSettings.waitTime)) {
+         lastHPExtraSendTime = now;
+         sending = true;
+@@ -911,7 +924,7 @@
+     }    
+ 
+     // lowest priority: user commands from queue
+-    if ((!sending) && (!heishamonSettings.listenonly)) {
++    if ((!sending) && (!HMX_PASSIVE)) {
+       struct cmdbuffer_t cmd;
+       if (xQueueReceive(cmdQueue, &cmd, 0) == pdTRUE) {
+         sending = true;
+@@ -924,12 +937,17 @@
+       }
+     }
+ 
++    hmxTxUnlock();
+     vTaskDelay(1 / portTICK_PERIOD_MS);
+   }
+ }
+ bool send_command(byte* command, int length) {
++  struct HmxCommandGuard {
++    HmxCommandGuard() { hmxTxLock(); }
++    ~HmxCommandGuard() { hmxTxUnlock(); }
++  } hmxCommandGuard;
+   if (length <= 0) return false;
+-  if ( heishamonSettings.listenonly ) {
++  if ( HMX_PASSIVE ) {
+     log_message(_F("Not sending this command. Heishamon in listen only mode!"));
+     return false;
+   }
+@@ -944,7 +962,7 @@
+ 
+ bool send_command(byte* command, int length) {
+   if (length <= 0) return false;
+-  if ( heishamonSettings.listenonly ) {
++  if ( HMX_PASSIVE ) {
+     log_message(_F("Not sending this command. Heishamon in listen only mode!"));
+     return false;
+   }
+@@ -1372,18 +1390,18 @@
+           case 110: {
+               int ret = saveSettings(client, &heishamonSettings);
+               #ifdef ESP8266
+-              if ((!heishamonSettings.opentherm) && (heishamonSettings.listenonly)) {
++              if ((!heishamonSettings.opentherm) && (HMX_PASSIVE)) {
+                 //make sure we disable TX to heatpump-RX using the mosfet so this line is floating and will not disturb cz-taw1
+                 //does not work for opentherm version currently
+-                digitalWrite(ENABLEPIN, LOW);
++                HMX_ENABLE_WRITE(LOW);
+               } else {
+-                digitalWrite(ENABLEPIN, HIGH);
++                HMX_ENABLE_WRITE(HIGH);
+               }
+               #else
+-              if (heishamonSettings.listenonly) {
+-                digitalWrite(ENABLEPIN, LOW);
++              if (HMX_PASSIVE) {
++                HMX_ENABLE_WRITE(LOW);
+               } else {
+-                digitalWrite(ENABLEPIN, HIGH);
++                HMX_ENABLE_WRITE(HIGH);
+               }
+               if (!heishamonSettings.opentherm) {
+                 digitalWrite(ENABLEOTPIN, LOW);
+@@ -1649,8 +1667,11 @@
+   digitalWrite(ENABLEOTPIN, LOW);
+   #endif
+ 
++#if defined(ESP32) && HMX_ENABLED
++  hmxBegin(heatpumpSerial.available() > 0);
++#else
+   //try to detect if cz-taw1 is connected in parallel
+-  if (!heishamonSettings.listenonly) {
++  if (!HMX_PASSIVE) {
+     if (heatpumpSerial.available() > 0) {
+       log_message(_F("There is data on the line without asking for it. Switching to listen only mode."));
+       heishamonSettings.listenonly = true;
+@@ -1658,9 +1679,10 @@
+     else {
+       //enable gpio15 after boot using gpio5 (D1) which enables the level shifter for the tx to panasonic
+       //do not enable if listen only to keep the line floating
+-      digitalWrite(ENABLEPIN, HIGH);
+-    }
+-  }
++      HMX_ENABLE_WRITE(HIGH);
++    }
++  }
++#endif
+ }
+ 
+ void setupMqtt() {
+@@ -1869,6 +1891,7 @@
+ 
+   loggingSerial.println(F("Loading config from flash..."));
+   loadSettings(&heishamonSettings);
++  hmxEarly();
+ 
+   loggingSerial.println(F("Setup wifi..."));
+   setupWifi(&heishamonSettings);
+@@ -1912,7 +1935,7 @@
+   if (heishamonSettings.opentherm) {
+     #if defined(ESP8266)
+     //always enable mosfets if opentherm is used
+-    digitalWrite(ENABLEPIN, HIGH);
++    HMX_ENABLE_WRITE(HIGH);
+     #else
+     //dedicated OT enable pin on ESP32 model
+     digitalWrite(ENABLEOTPIN, HIGH);
+@@ -1953,6 +1976,7 @@
+   //LittleFS.remove("/doublereset");  
+   //loggingSerial.println(F("End of setup.."));
+ 
++  hmxDisplayBegin();
+   inSetup = false;
+ }
+ 
+@@ -1996,7 +2020,7 @@
+     data_length = 0; //clear any data in array
+     sending = false; //receiving the answer from the send command timed out, so we are allowed to send a new command
+   }
+-  if ( (heishamonSettings.listenonly || sending) && (heatpumpSerial.available() > 0)) readSerial();
++  if ( (HMX_PASSIVE || sending) && (heatpumpSerial.available() > 0)) readSerial();
+ }
+ 
+ void checkBootButton() {
+@@ -2011,6 +2035,7 @@
+ }
+ 
+ void loop() {
++  hmxLoop();
+   //check boot button state
+   checkBootButton();
+ 
+@@ -2060,7 +2085,7 @@
+ 
+ #ifdef ESP8266
+ //this only runs on ESP8266, the ESP32 does this in vTask
+-  if ((!sending) && (!heishamonSettings.listenonly) && (heishamonSettings.optionalPCB) && ((unsigned long)(millis() - lastOptionalPCBRunTime) > OPTIONALPCBQUERYTIME) ) {
++  if ((!sending) && (!HMX_PASSIVE) && (heishamonSettings.optionalPCB) && ((unsigned long)(millis() - lastOptionalPCBRunTime) > OPTIONALPCBQUERYTIME) ) {
+     lastOptionalPCBRunTime = millis();
+     send_optionalpcb_query();
+     if ((unsigned long)(millis() - lastOptionalPCBSave) > (1000 * OPTIONALPCBSAVETIME)) {  // only save each 5 minutes
+@@ -2225,7 +2250,7 @@
+ 
+ #ifdef ESP8266
+     //get new data
+-    if (!heishamonSettings.listenonly) send_panasonic_query();
++    if (!HMX_PASSIVE) send_panasonic_query();
+ #endif
+ 
+     //Make sure the LWT is set to Online, even if the broker have marked it dead.
+--- a/HeishaMon/gpio.cpp
++++ b/HeishaMon/gpio.cpp
+@@ -1,4 +1,6 @@
+ #include "gpio.h"
++#include "hmx.h"
++// HMX integration v1
+ #include "src/common/progmem.h"
+ #include "src/common/stricmp.h"
+ const char* mqtt_topic_gpio PROGMEM = "gpio";
+@@ -7,6 +9,9 @@
+ 
+ void setupGPIO(gpioSettingsStruct gpioSettings) {
+   for (int i = 0 ;  i < NUMGPIO ; i++) {
++#if defined(ESP32) && HMX_ENABLED
++    if (hmxOwnsPin(gpioSettings.gpioPin[i])) continue;
++#endif
+     pinMode(gpioSettings.gpioPin[i], gpioSettings.gpioMode[i]);
+   }
+ }

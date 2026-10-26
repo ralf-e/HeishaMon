@@ -1,0 +1,21 @@
+﻿Reference,Pin,X mm,Y mm,PTH export
+J1,1,21.6600,38.5000,present
+J1,2,21.6600,35.9600,present
+J1,3,21.6600,33.4200,present
+J1,4,21.6600,30.8800,present
+J1,5,21.6600,28.3400,present
+J1,6,21.6600,25.8000,present
+J2,1,1.3400,38.5000,present
+J2,2,1.3400,35.9600,present
+J2,3,1.3400,33.4200,present
+J2,4,1.3400,30.8800,present
+J2,5,1.3400,28.3400,present
+J2,6,1.3400,25.8000,present
+J3,1,21.6600,11.0000,present
+J3,2,19.1200,11.0000,present
+J3,3,21.6600,8.4600,present
+J3,4,19.1200,8.4600,present
+J3,5,21.6600,5.9200,present
+J3,6,19.1200,5.9200,present
+J3,7,21.6600,3.3800,present
+J3,8,19.1200,3.3800,present

@@ -1,0 +1,4 @@
+﻿Designator,Quantity,Part,Side,Note
+J1,1,Long stack-through 1x6 socket/header,B,Manual; exact tail and stack height must match V6/W5500
+J2,1,Long stack-through 1x6 socket/header,B,Manual; 20.32 mm row spacing
+J3,1,2x4 2.54 mm pin header,B,Manual; pin 1 is square pad

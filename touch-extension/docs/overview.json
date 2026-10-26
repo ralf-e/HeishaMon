@@ -1,0 +1,106 @@
+[
+  {
+    "id": 0,
+    "label": "Waermepumpe",
+    "sample": "On (1)"
+  },
+  {
+    "id": 44,
+    "label": "Fehler",
+    "sample": "No error"
+  },
+  {
+    "id": 13,
+    "label": "Haupttimer",
+    "sample": "Ein (1)",
+    "status": "timer"
+  },
+  {
+    "id": 1,
+    "label": "Volumenstrom",
+    "sample": "15.20 l/min"
+  },
+  {
+    "id": 6,
+    "label": "Vorlauf",
+    "sample": "28.50 C"
+  },
+  {
+    "id": 5,
+    "label": "Ruecklauf",
+    "sample": "25.75 C"
+  },
+  {
+    "id": 7,
+    "label": "Vorlauf Soll",
+    "sample": "29 C"
+  },
+  {
+    "id": 46,
+    "label": "Puffer",
+    "sample": "30 C"
+  },
+  {
+    "id": 14,
+    "label": "Aussen",
+    "sample": "7 C"
+  },
+  {
+    "id": 94,
+    "label": "HK1 Status",
+    "sample": "Freigegeben",
+    "status": "hk1"
+  },
+  {
+    "id": 36,
+    "label": "HK1 Vorlauf Ist",
+    "sample": "28 C"
+  },
+  {
+    "id": 42,
+    "label": "HK1 Vorlauf Soll",
+    "sample": "29 C"
+  },
+  {
+    "id": 94,
+    "label": "HK2 Status",
+    "sample": "Freigegeben",
+    "status": "hk2"
+  },
+  {
+    "id": 37,
+    "label": "HK2 Vorlauf Ist",
+    "sample": "26 C"
+  },
+  {
+    "id": 43,
+    "label": "HK2 Vorlauf Soll",
+    "sample": "27 C"
+  },
+  {
+    "id": 4,
+    "label": "Warmwasser Status",
+    "sample": "Freigegeben",
+    "status": "ww"
+  },
+  {
+    "id": 10,
+    "label": "Warmwasser",
+    "sample": "47 C"
+  },
+  {
+    "id": 9,
+    "label": "Warmwasser Soll",
+    "sample": "48 C"
+  },
+  {
+    "id": 8,
+    "label": "Verdichter",
+    "sample": "32 Hz"
+  },
+  {
+    "id": 26,
+    "label": "Abtauung",
+    "sample": "Off (0)"
+  }
+]

@@ -1,0 +1,23 @@
+Drill report for HeishaMon_V6_Touch_Adapter.kicad_pcb
+Created on 2026-10-25T09:15:11
+
+Copper Layer Stackup:
+    =============================================================
+    L1 :  F.Cu                      front
+    L2 :  B.Cu                      back
+
+
+Drill file 'HeishaMon_V6_Touch_Adapter-PTH.drl' contains
+    plated through holes:
+    =============================================================
+    T1  0.300mm  0.0118"  (64 holes))
+    T2  1.000mm  0.0394"  (20 holes))
+
+    Total plated holes count 84
+
+
+Drill file 'HeishaMon_V6_Touch_Adapter-NPTH.drl' contains
+    unplated through holes:
+    =============================================================
+
+    Total unplated holes count 0

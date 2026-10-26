@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1650" height="1120" viewBox="0 0 1650 1120"><rect width="100%" height="100%" fill="white"/>
+<text x="35" y="52" fill="#183147" font-family="Segoe UI, sans-serif" font-size="32" font-weight="700">SPI-Anschlussplan - gemeinsame Leitungen, getrennte Chip-Selects</text>
+<rect x="40" y="100" width="360" height="390" rx="9" fill="#f1f6fa" stroke="#42677d" stroke-width="2"/>
+<text x="55" y="136" fill="#183147" font-family="Segoe UI, sans-serif" font-size="24" font-weight="700">V6: logische Netze</text>
+<rect x="1190" y="100" width="410" height="390" rx="9" fill="#f1f6fa" stroke="#42677d" stroke-width="2"/>
+<text x="1205" y="136" fill="#183147" font-family="Segoe UI, sans-serif" font-size="24" font-weight="700">Display: 15-poliger Stecker</text>
+<text x="60" y="197" fill="#183147" font-family="Segoe UI, sans-serif" font-size="24" font-weight="400">GPIO12 / SCK</text>
+<text x="1210" y="197" fill="#183147" font-family="Segoe UI, sans-serif" font-size="24" font-weight="400">6 SCLK</text>
+<line x1="400" y1="190" x2="1190" y2="190" stroke="#087e8b" stroke-width="3"/>
+<text x="60" y="272" fill="#183147" font-family="Segoe UI, sans-serif" font-size="24" font-weight="400">GPIO11 / MOSI</text>
+<text x="1210" y="272" fill="#183147" font-family="Segoe UI, sans-serif" font-size="24" font-weight="400">5 MOSI</text>
+<line x1="400" y1="265" x2="1190" y2="265" stroke="#087e8b" stroke-width="3"/>
+<text x="60" y="364" fill="#183147" font-family="Segoe UI, sans-serif" font-size="24" font-weight="400">GPIO13 / MISO</text>
+<line x1="400" y1="355" x2="610" y2="355" stroke="#087e8b" stroke-width="3"/>
+<line x1="610" y1="355" x2="610" y2="670" stroke="#087e8b" stroke-width="3"/>
+<rect x="440" y="670" width="620" height="170" rx="9" fill="#f1f6fa" stroke="#42677d" stroke-width="2"/>
+<text x="455" y="706" fill="#183147" font-family="Segoe UI, sans-serif" font-size="24" font-weight="700">W5500 auf dem Zwischenadapter</text>
+<text x="575" y="759" fill="#183147" font-family="Segoe UI, sans-serif" font-size="24" font-weight="400">MISO</text>
+<text x="735" y="759" fill="#183147" font-family="Segoe UI, sans-serif" font-size="24" font-weight="400">SCK</text>
+<text x="845" y="759" fill="#183147" font-family="Segoe UI, sans-serif" font-size="24" font-weight="400">MOSI</text>
+<text x="465" y="807" fill="#183147" font-family="Segoe UI, sans-serif" font-size="22" font-weight="400">CS=GPIO10 / RST=GPIO14 / IRQ=GPIO15</text>
+<line x1="760" y1="190" x2="760" y2="670" stroke="#087e8b" stroke-width="3"/>
+<circle cx="760" cy="190" r="5" fill="#087e8b"/>
+<line x1="880" y1="265" x2="880" y2="670" stroke="#087e8b" stroke-width="3"/>
+<circle cx="880" cy="265" r="5" fill="#087e8b"/>
+<text x="1210" y="364" fill="#183147" font-family="Segoe UI, sans-serif" font-size="24" font-weight="400">4 MISO: offen</text>
+<text x="60" y="434" fill="#183147" font-family="Segoe UI, sans-serif" font-size="24" font-weight="400">GPIO10 / 14 / 15</text>
+<text x="60" y="470" fill="#183147" font-family="Segoe UI, sans-serif" font-size="22" font-weight="400">nur zum W5500</text>
+<rect x="40" y="870" width="1550" height="170" rx="9" fill="#f1f6fa" stroke="#42677d" stroke-width="2"/>
+<text x="55" y="906" fill="#183147" font-family="Segoe UI, sans-serif" font-size="24" font-weight="700">Weitere Displayleitungen</text>
+<text x="60" y="948" fill="#183147" font-family="Segoe UI, sans-serif" font-size="23" font-weight="400">GPIO33 -&gt; 8 LCD_CS   |   GPIO34 -&gt; 9 LCD_DC   |   GPIO35 -&gt; 11 LCD_BL (PWM)</text>
+<text x="60" y="982" fill="#183147" font-family="Segoe UI, sans-serif" font-size="23" font-weight="400">8 LCD_CS: 10 kOhm nach 3,3 V   |   11 LCD_BL: 100 kOhm nach GND</text>
+<text x="60" y="1016" fill="#183147" font-family="Segoe UI, sans-serif" font-size="23" font-weight="400">7 SD_CS: 10 kOhm nach 3,3 V   |   10 LCD_RST: MCP GP2   |   15 TP_RST: MCP GP1</text>
+<text x="40" y="1091" fill="#a34e11" font-family="Segoe UI, sans-serif" font-size="23" font-weight="400">SCK/MOSI kurz halten; optional je 22-47 Ohm am Abzweig. Alle Logikpegel 3,3 V.</text>
+</svg>

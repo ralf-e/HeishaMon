@@ -1,0 +1,25 @@
+{
+  "board_mm": [
+    23,
+    41
+  ],
+  "layers": 2,
+  "thickness_mm": 1.6,
+  "assembly_design_side": "Top/F",
+  "mounted_side": "underside after 180deg flip",
+  "smd_placements": 16,
+  "bom_groups": 9,
+  "manual_headers": [
+    "J1",
+    "J2",
+    "J3"
+  ],
+  "manual_header_drill_holes": 20,
+  "exported_manual_holes_verified": true,
+  "bom_cpl_designators_match": true,
+  "gerber_origin": "lower left: KiCad (98.66,136), exported (0,0)",
+  "rotation_source": "Fabrication Toolkit transformations.csv blob 40878ad04b8f0ac427e48085c2440ea26bbd99a9; SOIC +270deg; C265027 specific offset 0deg (generic JST_GH_SM rule overridden after user 3D review)",
+  "pcb_sha256": "1215614d639d262178b7ba910c49b7121cb1fc020a33fbc22163eb2f84ee4cf9",
+  "mechanical_verification": false,
+  "uploaded_to_manufacturer": false
+}
