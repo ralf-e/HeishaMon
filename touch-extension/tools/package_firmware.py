@@ -17,3 +17,5 @@ shutil.copyfile(image,a.directory/name)
 "upstream":"b3ef43691f21985c851903d69a0f2e8647ed31f8","extension":"0.1.0-dev.7",
 "hardware_tested":False,"installed_sha256":{path:hashlib.sha256((ROOT/"firmware"/path).read_bytes()).hexdigest() for path in json.loads((ROOT/"firmware/hmx-installed.json").read_text())["installed_sha256"]}},indent=2)+"\n")
 print(name)
+for notice in ("LICENSE", "LICENSING.md"):
+ shutil.copyfile(ROOT/notice,a.directory/notice)

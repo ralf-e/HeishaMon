@@ -46,3 +46,5 @@ jobs:
           path: |
             touch-extension/output/firmware/HeishaMon_ESP32-HMX-*.bin
             touch-extension/output/firmware/firmware_manifest.json
+            touch-extension/output/firmware/LICENSE
+            touch-extension/output/firmware/LICENSING.md

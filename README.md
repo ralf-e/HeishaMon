@@ -11,7 +11,7 @@ Dieser Fork ergänzt **HeishaMon Large / V6 (ESP32-S3)** um ein lokales Touch-Di
 
 **Weiterlesen:** [Touch-Dokumentation und Vorschau](touch-extension/README.md) · [Build, Installation und Updates im Fork](touch-extension/docs/Fork_Workflow.md)
 
-**Lizenzklärung (26.10.2026):** Als Antwort auf [Issue #1029](https://github.com/heishamon/HeishaMon/issues/1029#issuecomment-6421009129) schlägt Upstream in [PR #1030](https://github.com/heishamon/HeishaMon/pull/1030) MPL-2.0 samt Drittlizenzhinweisen vor. Der PR ist noch offen; die Zustimmung der Mitwirkenden wird gesammelt. Die erläuterten Bedingungen für Quellcode und Firmware-BINs sind in den [Lizenzhinweisen zum Fork](touch-extension/docs/Fork_Workflow.md#prüfumfang-und-lizenz) zusammengefasst.
+**Lizenz:** Die eigene Touch-Erweiterungssoftware steht unter [MPL-2.0](touch-extension/LICENSE); Geltungsbereich und Ausnahmen stehen in [LICENSING.md](touch-extension/LICENSING.md). Für HeishaMon selbst schlägt Upstream als Antwort auf [Issue #1029](https://github.com/heishamon/HeishaMon/issues/1029#issuecomment-6421009129) in [PR #1030](https://github.com/heishamon/HeishaMon/pull/1030) MPL-2.0 samt Drittlizenzhinweisen vor. Stand 26.10.2026 ist der PR noch offen. Einzelheiten stehen in den [Lizenzhinweisen zum Fork](touch-extension/docs/Fork_Workflow.md#prüfumfang-und-lizenz).
 
 ---
 

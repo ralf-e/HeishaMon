@@ -650,7 +650,7 @@ Der Zwischenadapter liegt als KiCad-Schaltplan und nicht gerouteter Platzierungs
 - Gemeinsame SPI-Nutzung: https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/peripherals/spi_master.html
 - NeoPixel-Abhängigkeit: https://github.com/adafruit/Adafruit_NeoPixel/tree/d514fc3beae85dd4c2b19781b93faa47bd6e996f
 
-Der aktuelle Lizenzstand und die Antwort zu MPL-2.0, Quellcode-/BIN-Weitergabe und Drittlizenzhinweisen sind in der [Fork-Anleitung](Fork_Workflow.md#prüfumfang-und-lizenz) dokumentiert. Stand 26.10.2026 ist Upstream-PR #1030 noch offen. Der Quellcode enthält unveränderte Fremdquellen und deren vorhandene Hinweise. Die zusätzlich bereitgestellte NeoPixel-Quelle besitzt ihre eigene LGPL-Lizenzdatei unter vendor/Adafruit_NeoPixel/COPYING.
+Die eigene HMX-Erweiterungssoftware steht unter [MPL-2.0](../LICENSE); den Geltungsbereich und die Ausnahmen beschreibt [LICENSING.md](../LICENSING.md). Der aktuelle Upstream-Lizenzstand und die Antwort zu Quellcode-/BIN-Weitergabe und Drittlizenzhinweisen sind in der [Fork-Anleitung](Fork_Workflow.md#prüfumfang-und-lizenz) dokumentiert. Stand 26.10.2026 ist Upstream-PR #1030 noch offen. Der Quellcode enthält unveränderte Fremdquellen und deren vorhandene Hinweise. Die zusätzlich bereitgestellte NeoPixel-Quelle besitzt ihre eigene LGPL-Lizenzdatei unter vendor/Adafruit_NeoPixel/COPYING.
 
 ## 21. Kompakte Überkopf-Zwischenplatine Rev.0.6
 

@@ -50,6 +50,7 @@ current=[]
 for folder in ['firmware/HeishaMon','extension','upstream-reference','vendor','docs','hardware','manufacturing','validation']:
  current.extend((p,p.relative_to(R).as_posix()) for p in files(folder))
 current.extend((p,p.relative_to(R).as_posix()) for folder in ['tools','tests'] for p in files(folder) if p.name!='compile_commands.json')
+current.extend((R/name,name) for name in ['LICENSE','LICENSING.md'])
 current += [(R/'README.md','README.md'),(R/'.gitignore','.gitignore'),(R/'firmware/hmx-installed.json','firmware/hmx-installed.json'),(pdf,'output/'+pdf.name)]
 current.extend((p,p.relative_to(R).as_posix()) for p in firmware_items)
 project=O/('HeishaMon_V6_Touch_Projekt_'+suffix+'.zip');archive(project,current)

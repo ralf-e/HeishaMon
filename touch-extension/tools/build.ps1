@@ -48,4 +48,7 @@ $manifest | ConvertTo-Json -Depth 6 | Set-Content -Encoding utf8 (Join-Path $Out
 
 Get-FileHash -LiteralPath $targetBin -Algorithm SHA256 | Format-List
 Write-Host "Web-Update: $targetBin"
+foreach ($notice in @('LICENSE', 'LICENSING.md')) {
+  Copy-Item -LiteralPath (Join-Path $projectRoot $notice) -Destination (Join-Path $Output $notice)
+}
 Write-Host "Upload only the application .bin, never the merged or bootloader image."

@@ -8,7 +8,7 @@ Dieser Ordner enthält die gepflegte Erweiterung. Die offiziellen Quellen liegen
 
 Markdown-Anleitung und PDF beschreiben den Fork-Aufbau. Die Build-Anleitung verlinkt die zentral gepflegten Schritte für Actions, CLI und IDE; Upstream-Updates stehen in der Fork-Anleitung.
 
-**Lizenzklärung:** Upstream hat auf [Issue #1029](https://github.com/heishamon/HeishaMon/issues/1029#issuecomment-6421009129) mit einem Vorschlag für MPL-2.0 und Drittlizenzhinweisen in [PR #1030](https://github.com/heishamon/HeishaMon/pull/1030) reagiert. Stand 26.10.2026 ist der PR noch offen. Einzelheiten und Bedingungen für Firmware-BINs stehen in den [Lizenzhinweisen zum Fork](docs/Fork_Workflow.md#prüfumfang-und-lizenz).
+**Lizenz:** Die eigene Erweiterungssoftware steht unter [MPL-2.0](LICENSE). [Geltungsbereich und Ausnahmen](LICENSING.md) grenzen Fremdquellen, Modelltabellendaten und Hardwareunterlagen ab. Upstream hat auf [Issue #1029](https://github.com/heishamon/HeishaMon/issues/1029#issuecomment-6421009129) mit einem MPL-2.0-Vorschlag in [PR #1030](https://github.com/heishamon/HeishaMon/pull/1030) reagiert; Stand 26.10.2026 ist dieser PR noch offen. Einzelheiten für die gesamte Firmware stehen in den [Lizenzhinweisen zum Fork](docs/Fork_Workflow.md#prüfumfang-und-lizenz).
 
 ## Einstieg
 
