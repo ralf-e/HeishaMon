@@ -1,0 +1,19 @@
+﻿References,Correction from KiCad,Review
+R0,0,Nonpolar resistor/MLCC; 180-degree equivalence
+"R1,R2",0,Nonpolar resistor/MLCC; 180-degree equivalence
+"R3,R5,R6,R7,R10",0,Nonpolar resistor/MLCC; 180-degree equivalence
+"R8,R9",0,Nonpolar resistor/MLCC; 180-degree equivalence
+R11,0,Nonpolar resistor/MLCC; 180-degree equivalence
+"C1,C2",0,Nonpolar resistor/MLCC; 180-degree equivalence
+C3,0,Nonpolar resistor/MLCC; 180-degree equivalence
+J4,0,Numbered supplier pads verified; order-specific preview/centering pending
+U1,270,Numbered supplier pads verified; order-specific preview/centering pending
+U2,270,Numbered supplier pads verified; order-specific preview/centering pending
+U3,270,Numbered supplier pads verified; order-specific preview/centering pending
+U4,180,Numbered supplier pads verified; order-specific preview/centering pending
+"R12,R13,R16,R17,R21,R25",0,Nonpolar resistor/MLCC; 180-degree equivalence
+R20,0,Nonpolar resistor/MLCC; 180-degree equivalence
+R24,0,Nonpolar resistor/MLCC; 180-degree equivalence
+"R14,R18,R22,R26",0,Nonpolar resistor/MLCC; 180-degree equivalence
+"R15,R19,R23,R27",0,Nonpolar resistor/MLCC; 180-degree equivalence
+"C4,C5,C6,C7,C8,C9,C10",0,Nonpolar resistor/MLCC; 180-degree equivalence

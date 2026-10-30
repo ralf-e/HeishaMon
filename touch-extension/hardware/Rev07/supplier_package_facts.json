@@ -1,0 +1,380 @@
+{
+  "source": "JLCEDA/EasyEDA Official Library",
+  "homepages": [
+    "https://lceda.cn/",
+    "https://easyeda.com/"
+  ],
+  "note": "Selected pad coordinates for independent orientation comparison; not an assembly-preview confirmation.",
+  "packages": [
+    {
+      "code": "C265027",
+      "ref": "J4",
+      "package": "CONN-SMD_15P-P1.25_SM15B-GHS-TB-LF-SN",
+      "package_uuid": "0479e841efaf4697aa2b5c2156501f24",
+      "pads": [
+        {
+          "number": "17",
+          "x_mm": 10.59942,
+          "y_mm": 1.474546
+        },
+        {
+          "number": "16",
+          "x_mm": -10.59942,
+          "y_mm": 1.474546
+        },
+        {
+          "number": "15",
+          "x_mm": 8.7503,
+          "y_mm": -1.474648
+        },
+        {
+          "number": "14",
+          "x_mm": 7.50062,
+          "y_mm": -1.474648
+        },
+        {
+          "number": "13",
+          "x_mm": 6.24967,
+          "y_mm": -1.474648
+        },
+        {
+          "number": "12",
+          "x_mm": 4.99872,
+          "y_mm": -1.474648
+        },
+        {
+          "number": "11",
+          "x_mm": 3.74904,
+          "y_mm": -1.474648
+        },
+        {
+          "number": "10",
+          "x_mm": 2.49936,
+          "y_mm": -1.474648
+        },
+        {
+          "number": "9",
+          "x_mm": 1.24968,
+          "y_mm": -1.474648
+        },
+        {
+          "number": "8",
+          "x_mm": 0.0,
+          "y_mm": -1.474648
+        },
+        {
+          "number": "7",
+          "x_mm": -1.24968,
+          "y_mm": -1.474648
+        },
+        {
+          "number": "6",
+          "x_mm": -2.49936,
+          "y_mm": -1.474648
+        },
+        {
+          "number": "5",
+          "x_mm": -3.75031,
+          "y_mm": -1.474648
+        },
+        {
+          "number": "4",
+          "x_mm": -5.00126,
+          "y_mm": -1.474648
+        },
+        {
+          "number": "3",
+          "x_mm": -6.25094,
+          "y_mm": -1.474648
+        },
+        {
+          "number": "2",
+          "x_mm": -7.50062,
+          "y_mm": -1.474648
+        },
+        {
+          "number": "1",
+          "x_mm": -8.7503,
+          "y_mm": -1.474648
+        }
+      ],
+      "source_url": "https://easyeda.com/api/products/C265027/components",
+      "checked_at": "2026-10-30T15:29:53.720888+00:00"
+    },
+    {
+      "code": "C148011",
+      "ref": "U1",
+      "package": "SSOP-20_L7.2-W5.3-P0.65-LS7.8-BL",
+      "package_uuid": "ee6e51d8bc254544b76a0445309cfa69",
+      "pads": [
+        {
+          "number": "1",
+          "x_mm": -2.925064,
+          "y_mm": 3.490976
+        },
+        {
+          "number": "2",
+          "x_mm": -2.275078,
+          "y_mm": 3.490976
+        },
+        {
+          "number": "3",
+          "x_mm": -1.625092,
+          "y_mm": 3.490976
+        },
+        {
+          "number": "4",
+          "x_mm": -0.975106,
+          "y_mm": 3.490976
+        },
+        {
+          "number": "5",
+          "x_mm": -0.324866,
+          "y_mm": 3.490976
+        },
+        {
+          "number": "6",
+          "x_mm": 0.32512,
+          "y_mm": 3.490976
+        },
+        {
+          "number": "7",
+          "x_mm": 0.975106,
+          "y_mm": 3.490976
+        },
+        {
+          "number": "8",
+          "x_mm": 1.625092,
+          "y_mm": 3.490976
+        },
+        {
+          "number": "9",
+          "x_mm": 2.275078,
+          "y_mm": 3.490976
+        },
+        {
+          "number": "10",
+          "x_mm": 2.925064,
+          "y_mm": 3.490976
+        },
+        {
+          "number": "20",
+          "x_mm": -2.925064,
+          "y_mm": -3.490976
+        },
+        {
+          "number": "19",
+          "x_mm": -2.275078,
+          "y_mm": -3.490976
+        },
+        {
+          "number": "18",
+          "x_mm": -1.625092,
+          "y_mm": -3.490976
+        },
+        {
+          "number": "17",
+          "x_mm": -0.975106,
+          "y_mm": -3.490976
+        },
+        {
+          "number": "16",
+          "x_mm": -0.324866,
+          "y_mm": -3.490976
+        },
+        {
+          "number": "15",
+          "x_mm": 0.32512,
+          "y_mm": -3.490976
+        },
+        {
+          "number": "14",
+          "x_mm": 0.975106,
+          "y_mm": -3.490976
+        },
+        {
+          "number": "13",
+          "x_mm": 1.625092,
+          "y_mm": -3.490976
+        },
+        {
+          "number": "12",
+          "x_mm": 2.275078,
+          "y_mm": -3.490976
+        },
+        {
+          "number": "11",
+          "x_mm": 2.925064,
+          "y_mm": -3.490976
+        }
+      ],
+      "source_url": "https://easyeda.com/api/products/C148011/components",
+      "checked_at": "2026-10-30T15:29:56.522453+00:00"
+    },
+    {
+      "code": "C37593",
+      "ref": "U2",
+      "package": "MSOP-10_L3.0-W3.0-P0.50-LS5.0-BL",
+      "package_uuid": "118a205096a1444195e08feff716c648",
+      "pads": [
+        {
+          "number": "1",
+          "x_mm": -0.999998,
+          "y_mm": 2.109978
+        },
+        {
+          "number": "2",
+          "x_mm": -0.499872,
+          "y_mm": 2.109978
+        },
+        {
+          "number": "3",
+          "x_mm": 0.0,
+          "y_mm": 2.109978
+        },
+        {
+          "number": "4",
+          "x_mm": 0.500126,
+          "y_mm": 2.109978
+        },
+        {
+          "number": "5",
+          "x_mm": 0.999998,
+          "y_mm": 2.109978
+        },
+        {
+          "number": "10",
+          "x_mm": -0.999998,
+          "y_mm": -2.109978
+        },
+        {
+          "number": "9",
+          "x_mm": -0.499872,
+          "y_mm": -2.109978
+        },
+        {
+          "number": "8",
+          "x_mm": 0.0,
+          "y_mm": -2.109978
+        },
+        {
+          "number": "7",
+          "x_mm": 0.500126,
+          "y_mm": -2.109978
+        },
+        {
+          "number": "6",
+          "x_mm": 0.999998,
+          "y_mm": -2.109978
+        }
+      ],
+      "source_url": "https://easyeda.com/api/products/C37593/components",
+      "checked_at": "2026-10-30T15:29:59.151221+00:00"
+    },
+    {
+      "code": "C2866750",
+      "ref": "U3",
+      "package": "TSSOP-14_L5.0-W4.4-P0.65-LS6.4-BL",
+      "package_uuid": "80a3980f11914ca3a11dea6a81230c3d",
+      "pads": [
+        {
+          "number": "1",
+          "x_mm": -1.949958,
+          "y_mm": 2.800096
+        },
+        {
+          "number": "2",
+          "x_mm": -1.299972,
+          "y_mm": 2.800096
+        },
+        {
+          "number": "3",
+          "x_mm": -0.649986,
+          "y_mm": 2.800096
+        },
+        {
+          "number": "4",
+          "x_mm": 0.0,
+          "y_mm": 2.800096
+        },
+        {
+          "number": "5",
+          "x_mm": 0.649986,
+          "y_mm": 2.800096
+        },
+        {
+          "number": "6",
+          "x_mm": 1.299972,
+          "y_mm": 2.800096
+        },
+        {
+          "number": "7",
+          "x_mm": 1.949958,
+          "y_mm": 2.800096
+        },
+        {
+          "number": "8",
+          "x_mm": 1.949958,
+          "y_mm": -2.800096
+        },
+        {
+          "number": "9",
+          "x_mm": 1.299972,
+          "y_mm": -2.800096
+        },
+        {
+          "number": "10",
+          "x_mm": 0.649986,
+          "y_mm": -2.800096
+        },
+        {
+          "number": "11",
+          "x_mm": 0.0,
+          "y_mm": -2.800096
+        },
+        {
+          "number": "12",
+          "x_mm": -0.649986,
+          "y_mm": -2.800096
+        },
+        {
+          "number": "13",
+          "x_mm": -1.299972,
+          "y_mm": -2.800096
+        },
+        {
+          "number": "14",
+          "x_mm": -1.949958,
+          "y_mm": -2.800096
+        }
+      ],
+      "source_url": "https://easyeda.com/api/products/C2866750/components",
+      "checked_at": "2026-10-30T15:30:02.308096+00:00"
+    },
+    {
+      "code": "C2861006",
+      "ref": "U4",
+      "package": "SC-70-3_L2.1-W1.3-P1.30-LS2.2-BR",
+      "package_uuid": "63c91ea40c7141c491bb8dd7fd02344f",
+      "pads": [
+        {
+          "number": "3",
+          "x_mm": -0.919988,
+          "y_mm": 0.0
+        },
+        {
+          "number": "2",
+          "x_mm": 0.919988,
+          "y_mm": -0.649986
+        },
+        {
+          "number": "1",
+          "x_mm": 0.919988,
+          "y_mm": 0.649986
+        }
+      ],
+      "source_url": "https://easyeda.com/api/products/C2861006/components",
+      "checked_at": "2026-10-30T15:30:04.810805+00:00"
+    }
+  ]
+}

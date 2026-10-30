@@ -1,0 +1,76 @@
+{
+  "revision": "0.7",
+  "board_mm": [
+    23,
+    41
+  ],
+  "layers": 2,
+  "nets_verified": 35,
+  "pcb_components": 51,
+  "erc_violations": 0,
+  "drc_violations": 0,
+  "unconnected_items": 0,
+  "tracks": 835,
+  "vias": 79,
+  "mating_connectors_unchanged": true,
+  "hardware_tested": false,
+  "manufacturing_release": false,
+  "channels": [
+    {
+      "channel": 0,
+      "rail": "+3V3_V6",
+      "nominal_source_v": 3.3,
+      "nominal_adc_v": 1.5565744042565235,
+      "source_per_adc_v": 2.12004,
+      "worst_adc_v": 1.699923547814944,
+      "max_top_resistor_w": 0.0012972972972972974,
+      "powered_off_adc_leakage_bound_v": 0.20019999999999996,
+      "powered_off_switch_source_max_v": 1.8017999999999996,
+      "nominal_source_current_ua": 172.78287202128263,
+      "filter_time_constant_ms": 0.5,
+      "notes": "Static leakage calculation is conservative; power-transition transients, ADC input impedance and real calibration still require hardware verification"
+    },
+    {
+      "channel": 1,
+      "rail": "+3V3_EXT",
+      "nominal_source_v": 3.3,
+      "nominal_adc_v": 1.5565744042565235,
+      "source_per_adc_v": 2.12004,
+      "worst_adc_v": 1.699923547814944,
+      "max_top_resistor_w": 0.0012972972972972974,
+      "powered_off_adc_leakage_bound_v": 0.20019999999999996,
+      "powered_off_switch_source_max_v": 1.8017999999999996,
+      "nominal_source_current_ua": 172.78287202128263,
+      "filter_time_constant_ms": 0.5,
+      "notes": "Static leakage calculation is conservative; power-transition transients, ADC input impedance and real calibration still require hardware verification"
+    },
+    {
+      "channel": 2,
+      "rail": "+5V_V6",
+      "nominal_source_v": 5,
+      "nominal_adc_v": 1.547958861445298,
+      "source_per_adc_v": 3.2300600000000004,
+      "worst_adc_v": 1.7051595716345158,
+      "max_top_resistor_w": 0.001514014014014014,
+      "powered_off_adc_leakage_bound_v": 0.20019999999999996,
+      "powered_off_switch_source_max_v": 1.8357785928642878,
+      "nominal_source_current_ua": 171.826529538151,
+      "filter_time_constant_ms": 0.6666666666666666,
+      "notes": "Static leakage calculation is conservative; power-transition transients, ADC input impedance and real calibration still require hardware verification"
+    },
+    {
+      "channel": 3,
+      "rail": "+12V_SENSE",
+      "nominal_source_v": 12,
+      "nominal_adc_v": 1.4021712153879875,
+      "source_per_adc_v": 8.558156000000002,
+      "worst_adc_v": 2.1070465058151227,
+      "max_top_resistor_w": 0.0047694753577106515,
+      "powered_off_adc_leakage_bound_v": 0.20019999999999996,
+      "powered_off_switch_source_max_v": 2.3117189705165377,
+      "nominal_source_current_ua": 155.6438092504974,
+      "filter_time_constant_ms": 0.8717948717948718,
+      "notes": "Static leakage calculation is conservative; power-transition transients, ADC input impedance and real calibration still require hardware verification"
+    }
+  ]
+}

@@ -38,6 +38,8 @@ Markdown-Anleitung und PDF beschreiben den Fork-Aufbau. Die Build-Anleitung verl
 
 ## Hardware und Fertigung
 
+**Neue Variante Rev.0.7:** [Vier Spannungsmessungen auf weiterhin 23×41 mm](hardware/Rev07/README.md): 3,3 V vor/nach R0, 5 V und separater 12-V-Messeingang. Schaltplan, PCB und Prototyp-Fertigungsdaten sind getrennt von Rev.0.6 abgelegt. **dev.7 enthält noch keine ADC-Auswertung.** Die folgenden Bestandsangaben und bisherigen Fertigungslinks beschreiben weiterhin Rev.0.6.
+
 23×41 mm, zwei Kupferlagen, 1,6 mm. GH-Side-Entry-Buchse SM15B-GHS-TB am linken F-Rand, montiert unten rechts; J3 gegenüber auf B, montiert oben links. F-Seite mit SMD und LCD liegt montiert unten; manuelle Stiftleisten auf B liegen oben. Die um 180° gekippte Kontaktzuordnung wurde am PCB geprüft. Gegenüber 28×94 mm reduziert sich die Fläche um 64,2 %.
 
 ERC 0 Verstöße, DRC 0 Verstöße und 0 offene Verbindungen. 21 Netze. Die JLCPCB-BOM und CPL enthalten identische 16 SMD-Referenzen in 9 Gruppen. J1/J2/J3 werden manuell bestückt und fehlen in diesen Listen; ihre 20 Bohrungen bleiben in den Gerber-/Bohrdaten erhalten. Bei JLC **Top Side** wählen, obwohl F im eingebauten Zustand unten liegt.

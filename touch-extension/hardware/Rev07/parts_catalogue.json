@@ -1,0 +1,333 @@
+{
+  "revision": "0.7",
+  "identities_checked_on": "2026-10-30",
+  "stock_snapshot_verified": true,
+  "stock_recheck_required_at_order": true,
+  "rotation_library_verified": true,
+  "rotation_review_required": [
+    "U1",
+    "U2",
+    "U3",
+    "U4",
+    "J4"
+  ],
+  "parts": [
+    {
+      "code": "C17477",
+      "refs": [
+        "R0"
+      ],
+      "mpn": "0805W8F0000T5E",
+      "maker": "UNI-ROYAL",
+      "value": "0R",
+      "stock": 5127530,
+      "orderable": 4438883,
+      "rotation": 0,
+      "url": "https://jlcpcb.com/partdetail/0805W8F0000T5E/C17477",
+      "stock_checked_on": "2026-10-30T15:29:41.936869+00:00",
+      "stock_status": "available at snapshot; not reserved",
+      "stock_source": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C17477"
+    },
+    {
+      "code": "C17673",
+      "refs": [
+        "R1",
+        "R2"
+      ],
+      "mpn": "0805W8F4701T5E",
+      "maker": "UNI-ROYAL",
+      "value": "4.7k 1%",
+      "stock": 4365443,
+      "orderable": 3513501,
+      "rotation": 0,
+      "url": "https://jlcpcb.com/partdetail/0805W8F4701T5E/C17673",
+      "stock_checked_on": "2026-10-30T15:29:43.380350+00:00",
+      "stock_status": "available at snapshot; not reserved",
+      "stock_source": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C17673"
+    },
+    {
+      "code": "C17414",
+      "refs": [
+        "R3",
+        "R5",
+        "R6",
+        "R7",
+        "R10"
+      ],
+      "mpn": "0805W8F1002T5E",
+      "maker": "UNI-ROYAL",
+      "value": "10k 1%",
+      "stock": 52498163,
+      "orderable": 49411862,
+      "rotation": 0,
+      "url": "https://jlcpcb.com/partdetail/0805W8F1002T5E/C17414",
+      "stock_checked_on": "2026-10-30T15:29:44.851696+00:00",
+      "stock_status": "available at snapshot; not reserved",
+      "stock_source": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C17414"
+    },
+    {
+      "code": "C17634",
+      "refs": [
+        "R8",
+        "R9"
+      ],
+      "mpn": "0805W8F330JT5E",
+      "maker": "UNI-ROYAL",
+      "value": "33R 1%",
+      "stock": 1318306,
+      "orderable": 1229611,
+      "rotation": 0,
+      "url": "https://jlcpcb.com/partdetail/0805W8F330JT5E/C17634",
+      "stock_checked_on": "2026-10-30T15:29:46.398844+00:00",
+      "stock_status": "available at snapshot; not reserved",
+      "stock_source": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C17634"
+    },
+    {
+      "code": "C149504",
+      "refs": [
+        "R11"
+      ],
+      "mpn": "0805W8F1003T5E",
+      "maker": "UNI-ROYAL",
+      "value": "100k 1%",
+      "stock": 3121085,
+      "orderable": 2647452,
+      "rotation": 0,
+      "url": "https://jlcpcb.com/partdetail/0805W8F1003T5E/C149504",
+      "stock_checked_on": "2026-10-30T15:29:47.931353+00:00",
+      "stock_status": "available at snapshot; not reserved",
+      "stock_source": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C149504"
+    },
+    {
+      "code": "C49678",
+      "refs": [
+        "C1",
+        "C2"
+      ],
+      "mpn": "CC0805KRX7R9BB104",
+      "maker": "YAGEO",
+      "value": "100nF 50V X7R 10%",
+      "stock": 22819674,
+      "orderable": 19407642,
+      "rotation": 0,
+      "url": "https://jlcpcb.com/partdetail/CC0805KRX7R9BB104/C49678",
+      "stock_checked_on": "2026-10-30T15:29:49.501537+00:00",
+      "stock_status": "available at snapshot; not reserved",
+      "stock_source": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C49678"
+    },
+    {
+      "code": "C15850",
+      "refs": [
+        "C3"
+      ],
+      "mpn": "CL21A106KAYNNNE",
+      "maker": "Samsung",
+      "value": "10uF 25V X5R 10%",
+      "stock": 8424769,
+      "orderable": 6638084,
+      "rotation": 0,
+      "url": "https://jlcpcb.com/partdetail/CL21A106KAYNNNE/C15850",
+      "stock_checked_on": "2026-10-30T15:29:51.025287+00:00",
+      "stock_status": "available at snapshot; not reserved",
+      "stock_source": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C15850"
+    },
+    {
+      "code": "C265027",
+      "refs": [
+        "J4"
+      ],
+      "mpn": "SM15B-GHS-TB(LF)(SN)",
+      "maker": "JST",
+      "value": "JST GH 15P 1.25mm Side Entry 90deg",
+      "stock": 13350,
+      "orderable": 13220,
+      "rotation": 0,
+      "url": "https://jlcpcb.com/partdetail/JST-SM15B_GHS_TB_LF_SN/C265027",
+      "rotation_basis": "Exact numbered supplier-pad comparison; order-specific placement preview pending",
+      "stock_checked_on": "2026-10-30T15:29:52.616268+00:00",
+      "stock_status": "available at snapshot; not reserved",
+      "stock_source": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C265027"
+    },
+    {
+      "refs": [
+        "U1"
+      ],
+      "mpn": "MCP23008-E/SS",
+      "maker": "Microchip",
+      "code": "C148011",
+      "value": "MCP23008 SSOP20",
+      "rotation": 270,
+      "stock": 166,
+      "orderable": 143,
+      "stock_status": "available at snapshot; not reserved",
+      "url": "https://www.lcsc.com/product-detail/C148011.html",
+      "stock_checked_on": "2026-10-30T15:29:55.215915+00:00",
+      "stock_source": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C148011",
+      "rotation_basis": "Exact numbered supplier-pad comparison; order-specific placement preview pending"
+    },
+    {
+      "refs": [
+        "U2"
+      ],
+      "mpn": "ADS1115IDGSR",
+      "maker": "TI",
+      "code": "C37593",
+      "value": "ADS1115 VSSOP10",
+      "rotation": 270,
+      "stock": 15976,
+      "orderable": 12069,
+      "stock_status": "available at snapshot; not reserved",
+      "url": "https://www.lcsc.com/product-detail/C37593.html",
+      "stock_checked_on": "2026-10-30T15:29:58.060521+00:00",
+      "stock_source": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C37593",
+      "rotation_basis": "Exact numbered supplier-pad comparison; order-specific placement preview pending"
+    },
+    {
+      "refs": [
+        "U3"
+      ],
+      "mpn": "TMUX1511PWR",
+      "maker": "TI",
+      "code": "C2866750",
+      "value": "TMUX1511 TSSOP14",
+      "rotation": 270,
+      "stock": 2361,
+      "orderable": 2006,
+      "stock_status": "available at snapshot; not reserved",
+      "url": "https://www.lcsc.com/product-detail/C2866750.html",
+      "stock_checked_on": "2026-10-30T15:30:00.950566+00:00",
+      "stock_source": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C2866750",
+      "rotation_basis": "Exact numbered supplier-pad comparison; order-specific placement preview pending"
+    },
+    {
+      "refs": [
+        "U4"
+      ],
+      "mpn": "TLV809EA29DCKR",
+      "maker": "TI",
+      "code": "C2861006",
+      "value": "2.93V supervisor SC70",
+      "rotation": 180,
+      "stock": 20,
+      "orderable": 20,
+      "stock_status": "available at snapshot; not reserved",
+      "url": "https://www.lcsc.com/product-detail/C2861006.html",
+      "stock_checked_on": "2026-10-30T15:30:03.754315+00:00",
+      "stock_source": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C2861006",
+      "rotation_basis": "Exact numbered supplier-pad comparison; order-specific placement preview pending"
+    },
+    {
+      "refs": [
+        "R12",
+        "R13",
+        "R16",
+        "R17",
+        "R21",
+        "R25"
+      ],
+      "mpn": "RT0603BRD0710KL",
+      "maker": "Yageo",
+      "code": "C95204",
+      "value": "10k 0.1%",
+      "rotation": 0,
+      "stock": 1817847,
+      "orderable": 1113119,
+      "stock_status": "available at snapshot; not reserved",
+      "url": "https://www.lcsc.com/product-detail/C95204.html",
+      "stock_checked_on": "2026-10-30T15:30:06.397511+00:00",
+      "stock_source": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C95204"
+    },
+    {
+      "refs": [
+        "R20"
+      ],
+      "mpn": "RT0603BRD0720KL",
+      "maker": "Yageo",
+      "code": "C723637",
+      "value": "20k 0.1%",
+      "rotation": 0,
+      "stock": 44866,
+      "orderable": 489,
+      "stock_status": "available at snapshot; not reserved",
+      "url": "https://www.lcsc.com/product-detail/C723637.html",
+      "stock_checked_on": "2026-10-30T15:30:07.939467+00:00",
+      "stock_source": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C723637"
+    },
+    {
+      "refs": [
+        "R24"
+      ],
+      "mpn": "RT0603BRD0768KL",
+      "maker": "Yageo",
+      "code": "C705793",
+      "value": "68k 0.1%",
+      "rotation": 0,
+      "stock": 23533,
+      "orderable": 15893,
+      "stock_status": "available at snapshot; not reserved",
+      "url": "https://www.lcsc.com/product-detail/C705793.html",
+      "stock_checked_on": "2026-10-30T15:30:09.644816+00:00",
+      "stock_source": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C705793"
+    },
+    {
+      "refs": [
+        "R14",
+        "R18",
+        "R22",
+        "R26"
+      ],
+      "mpn": "RT0603BRD071KL",
+      "maker": "Yageo",
+      "code": "C110776",
+      "value": "1k 0.1%",
+      "rotation": 0,
+      "stock": 1544110,
+      "orderable": 1326219,
+      "stock_status": "available at snapshot; not reserved",
+      "url": "https://www.lcsc.com/product-detail/C110776.html",
+      "stock_checked_on": "2026-10-30T15:30:11.253020+00:00",
+      "stock_source": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C110776"
+    },
+    {
+      "refs": [
+        "R15",
+        "R19",
+        "R23",
+        "R27"
+      ],
+      "mpn": "RT0603BRD07100KL",
+      "maker": "Yageo",
+      "code": "C122538",
+      "value": "100k 0.1%",
+      "rotation": 0,
+      "stock": 1329823,
+      "orderable": 1194123,
+      "stock_status": "available at snapshot; not reserved",
+      "url": "https://www.lcsc.com/product-detail/C122538.html",
+      "stock_checked_on": "2026-10-30T15:30:12.715886+00:00",
+      "stock_source": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C122538"
+    },
+    {
+      "refs": [
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8",
+        "C9",
+        "C10"
+      ],
+      "mpn": "CL10B104KB8NNNC",
+      "maker": "Samsung",
+      "code": "C1591",
+      "value": "100n X7R 50V 10%",
+      "rotation": 0,
+      "stock": 4129318,
+      "orderable": 3664061,
+      "stock_status": "available at snapshot; not reserved",
+      "url": "https://www.lcsc.com/product-detail/C1591.html",
+      "stock_checked_on": "2026-10-30T15:30:14.224209+00:00",
+      "stock_source": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C1591"
+    }
+  ]
+}

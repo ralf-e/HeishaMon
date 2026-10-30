@@ -1,0 +1,6 @@
+﻿References,Description
+"J1,J2",Existing long stack-through 1x6 contacts; unchanged positions
+J3,Existing 2x4 GPIO header; unchanged position
+TP5,One extra +12V measurement wire; existing V6/adapter connector GND is the reference; not a power input
+TP6,Optional GND solder/test point; no extra ground wire needed when V6 and adapter already share GND
+"TP1,TP2,TP3,TP4",Bare measurement pads; do not assemble a component

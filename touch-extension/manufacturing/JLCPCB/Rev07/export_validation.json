@@ -1,0 +1,21 @@
+{
+  "revision": "0.7",
+  "smd_references": 42,
+  "bom_cpl_equal": true,
+  "hardware_tested": false,
+  "manufacturing_release": false,
+  "rotation_library_verified": true,
+  "rotation_review_required": true,
+  "stock_snapshot_verified": true,
+  "stock_recheck_required_at_order": true,
+  "sha256": {
+    "BOM_Detail.csv": "ec5752d7dd15ae1a196c4f7a8af04865040cb07d9e765ebc885f539999fc71fc",
+    "BOM_JLCPCB_REVIEW.csv": "63ac2b95496fb72044c3df26002541a1eb0599fcf35046afef7cc80219358fc5",
+    "CPL_JLCPCB_REVIEW.csv": "8409b1f6da4f4b7fc6bf6805a8c7396f155d5564f2b492fd3588a3c046ca8eb0",
+    "drill_report.txt": "48e3c0f60b0d11d1230c7412297a7cfb2b9ad3d2cbfc60bfd7708135672bb8f0",
+    "Gerber_HeishaMon_V6_Rev07_PROTOTYPE.zip": "3a4770e03af9afc740ae1ec13d259faf6ea37b693b269710f4e84b5a125b18e9",
+    "Manual_parts.csv": "5ce76b6e6c99eed26be217400f2500d961f11b0e86cca1996c0c5ca1c57f4534",
+    "README.md": "3c807f35dce31623ad521ce7079f9255bb92a52aab9c6e691b2581c7a8716123",
+    "Rotation_REVIEW.csv": "5608001d9b555789ce2818577f6fbe3ac91c0d0c9c6a4a4f5f6bb80d442982e6"
+  }
+}

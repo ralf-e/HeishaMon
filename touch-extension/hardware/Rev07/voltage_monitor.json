@@ -1,0 +1,50 @@
+{
+  "adc": "ADS1115IDGSR",
+  "address": "0x48",
+  "supply": "+3V3_EXT",
+  "switch": "TMUX1511PWR",
+  "supervisor": "TLV809EA29DCKR",
+  "supervisor_threshold_v": 2.93,
+  "validity_input": "MCP23008 GP0: high = measurement enabled; low = undervoltage / invalid",
+  "channels": [
+    {
+      "channel": 0,
+      "rail": "+3V3_V6",
+      "r_top_ohm": 10000,
+      "r_bottom_ohm": 10000,
+      "r_series_ohm": 1000,
+      "r_pulldown_ohm": 100000,
+      "max_source_v": 3.6
+    },
+    {
+      "channel": 1,
+      "rail": "+3V3_EXT",
+      "r_top_ohm": 10000,
+      "r_bottom_ohm": 10000,
+      "r_series_ohm": 1000,
+      "r_pulldown_ohm": 100000,
+      "max_source_v": 3.6
+    },
+    {
+      "channel": 2,
+      "rail": "+5V_V6",
+      "r_top_ohm": 20000,
+      "r_bottom_ohm": 10000,
+      "r_series_ohm": 1000,
+      "r_pulldown_ohm": 100000,
+      "max_source_v": 5.5
+    },
+    {
+      "channel": 3,
+      "rail": "+12V_SENSE",
+      "r_top_ohm": 68000,
+      "r_bottom_ohm": 10000,
+      "r_series_ohm": 1000,
+      "r_pulldown_ohm": 100000,
+      "max_source_v": 18
+    }
+  ],
+  "external_input": "TP5 +12V_SENSE: one extra measurement wire when V6/adapter share connector GND; TP6 optional GND solder/test point; not a power input",
+  "hardware_tested": false,
+  "firmware_support": false
+}

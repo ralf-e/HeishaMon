@@ -1,0 +1,98 @@
+{
+  "revision": "0.7",
+  "source": "JLCEDA/EasyEDA Official Library",
+  "homepages": [
+    "https://lceda.cn/",
+    "https://easyeda.com/"
+  ],
+  "method": "All numbered pads, four quarter turns, centered least-squares comparison; J4 mounting side checked.",
+  "limitation": "Supplier library is not the JLC order-specific placement/3D model. Translation is comparison-only; no automatic CPL position offset.",
+  "assembler_preview_verified": false,
+  "parts": [
+    {
+      "ref": "J4",
+      "code": "C265027",
+      "kicad_degrees": 270.0,
+      "correction_degrees": 0,
+      "cpl_degrees": 270.0,
+      "numbered_pads_compared": 15,
+      "centered_pad_rms_mm": 0.000605,
+      "comparison_translation_mm": [
+        0.375352,
+        0.000339
+      ],
+      "translation_applied_to_cpl": false,
+      "library_orientation_verified": true,
+      "assembler_preview_verified": false,
+      "source_url": "https://easyeda.com/api/products/C265027/components"
+    },
+    {
+      "ref": "U1",
+      "code": "C148011",
+      "kicad_degrees": 0.0,
+      "correction_degrees": 270,
+      "cpl_degrees": 270.0,
+      "numbered_pads_compared": 20,
+      "centered_pad_rms_mm": 0.009024,
+      "comparison_translation_mm": [
+        0.0,
+        -2.5e-05
+      ],
+      "translation_applied_to_cpl": false,
+      "library_orientation_verified": true,
+      "assembler_preview_verified": false,
+      "source_url": "https://easyeda.com/api/products/C148011/components"
+    },
+    {
+      "ref": "U2",
+      "code": "C37593",
+      "kicad_degrees": 0.0,
+      "correction_degrees": 270,
+      "cpl_degrees": 270.0,
+      "numbered_pads_compared": 10,
+      "centered_pad_rms_mm": 0.040022,
+      "comparison_translation_mm": [
+        0.0,
+        -5.1e-05
+      ],
+      "translation_applied_to_cpl": false,
+      "library_orientation_verified": true,
+      "assembler_preview_verified": false,
+      "source_url": "https://easyeda.com/api/products/C37593/components"
+    },
+    {
+      "ref": "U3",
+      "code": "C2866750",
+      "kicad_degrees": 0.0,
+      "correction_degrees": 270,
+      "cpl_degrees": 270.0,
+      "numbered_pads_compared": 14,
+      "centered_pad_rms_mm": 0.062404,
+      "comparison_translation_mm": [
+        0.0,
+        0.0
+      ],
+      "translation_applied_to_cpl": false,
+      "library_orientation_verified": true,
+      "assembler_preview_verified": false,
+      "source_url": "https://easyeda.com/api/products/C2866750/components"
+    },
+    {
+      "ref": "U4",
+      "code": "C2861006",
+      "kicad_degrees": 0.0,
+      "correction_degrees": 180,
+      "cpl_degrees": 180.0,
+      "numbered_pads_compared": 3,
+      "centered_pad_rms_mm": 0.03063,
+      "comparison_translation_mm": [
+        0.010829,
+        0.0
+      ],
+      "translation_applied_to_cpl": false,
+      "library_orientation_verified": true,
+      "assembler_preview_verified": false,
+      "source_url": "https://easyeda.com/api/products/C2861006/components"
+    }
+  ]
+}

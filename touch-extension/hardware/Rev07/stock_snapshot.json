@@ -1,0 +1,338 @@
+{
+  "source": "JLCPCB public parts API",
+  "reservation": false,
+  "quantity_per_board_only": true,
+  "note": "Snapshot; assembly attrition and order quantity must be rechecked in quotation.",
+  "parts": [
+    {
+      "code": "C17477",
+      "mpn": "0805W8F0000T5E",
+      "refs": [
+        "R0"
+      ],
+      "package": "0805",
+      "description": "-55℃~+155℃ 0Ω 125mW 150V Thick Film Resistor ±1% ±800ppm/℃ 0805 Chip Resistor - Surface Mount ROHS",
+      "warehouse_stock": 5127530,
+      "available_order_quantity": 4438883,
+      "component_status": "yes",
+      "assembly_process": "SMT",
+      "minimum_purchase": 1,
+      "attrition_quantity": 10,
+      "checked_at": "2026-10-30T15:29:41.936869+00:00",
+      "source_url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C17477"
+    },
+    {
+      "code": "C17673",
+      "mpn": "0805W8F4701T5E",
+      "refs": [
+        "R1",
+        "R2"
+      ],
+      "package": "0805",
+      "description": "-55℃~+155℃ 125mW 150V 4.7kΩ Thick Film Resistor ±1% ±100ppm/℃ 0805 Chip Resistor - Surface Mount ROHS",
+      "warehouse_stock": 4365443,
+      "available_order_quantity": 3513501,
+      "component_status": "yes",
+      "assembly_process": "SMT",
+      "minimum_purchase": 1,
+      "attrition_quantity": 6,
+      "checked_at": "2026-10-30T15:29:43.380350+00:00",
+      "source_url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C17673"
+    },
+    {
+      "code": "C17414",
+      "mpn": "0805W8F1002T5E",
+      "refs": [
+        "R3",
+        "R5",
+        "R6",
+        "R7",
+        "R10"
+      ],
+      "package": "0805",
+      "description": "-55℃~+155℃ 10kΩ 125mW 150V Thick Film Resistor ±1% ±100ppm/℃ 0805 Chip Resistor - Surface Mount ROHS",
+      "warehouse_stock": 52498163,
+      "available_order_quantity": 49411862,
+      "component_status": "yes",
+      "assembly_process": "SMT",
+      "minimum_purchase": 1,
+      "attrition_quantity": 10,
+      "checked_at": "2026-10-30T15:29:44.851696+00:00",
+      "source_url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C17414"
+    },
+    {
+      "code": "C17634",
+      "mpn": "0805W8F330JT5E",
+      "refs": [
+        "R8",
+        "R9"
+      ],
+      "package": "0805",
+      "description": "-55℃~+155℃ 125mW 150V 33Ω Thick Film Resistor ±1% ±200ppm/℃ 0805 Chip Resistor - Surface Mount ROHS",
+      "warehouse_stock": 1318306,
+      "available_order_quantity": 1229611,
+      "component_status": "yes",
+      "assembly_process": "SMT",
+      "minimum_purchase": 1,
+      "attrition_quantity": 10,
+      "checked_at": "2026-10-30T15:29:46.398844+00:00",
+      "source_url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C17634"
+    },
+    {
+      "code": "C149504",
+      "mpn": "0805W8F1003T5E",
+      "refs": [
+        "R11"
+      ],
+      "package": "0805",
+      "description": "-55℃~+155℃ 100kΩ 125mW 150V Thick Film Resistor ±1% ±100ppm/℃ 0805 Chip Resistor - Surface Mount ROHS",
+      "warehouse_stock": 3121085,
+      "available_order_quantity": 2647452,
+      "component_status": "yes",
+      "assembly_process": "SMT",
+      "minimum_purchase": 1,
+      "attrition_quantity": 10,
+      "checked_at": "2026-10-30T15:29:47.931353+00:00",
+      "source_url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C149504"
+    },
+    {
+      "code": "C49678",
+      "mpn": "CC0805KRX7R9BB104",
+      "refs": [
+        "C1",
+        "C2"
+      ],
+      "package": "0805",
+      "description": "100nF 50V X7R ±10% 0805 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS",
+      "warehouse_stock": 22819674,
+      "available_order_quantity": 19407642,
+      "component_status": "yes",
+      "assembly_process": "SMT",
+      "minimum_purchase": 1,
+      "attrition_quantity": 10,
+      "checked_at": "2026-10-30T15:29:49.501537+00:00",
+      "source_url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C49678"
+    },
+    {
+      "code": "C15850",
+      "mpn": "CL21A106KAYNNNE",
+      "refs": [
+        "C3"
+      ],
+      "package": "0805",
+      "description": "10uF 25V X5R ±10% 0805 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS",
+      "warehouse_stock": 8424769,
+      "available_order_quantity": 6638084,
+      "component_status": "yes",
+      "assembly_process": "SMT",
+      "minimum_purchase": 1,
+      "attrition_quantity": 10,
+      "checked_at": "2026-10-30T15:29:51.025287+00:00",
+      "source_url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C15850"
+    },
+    {
+      "code": "C265027",
+      "mpn": "SM15B-GHS-TB(LF)(SN)",
+      "refs": [
+        "J4"
+      ],
+      "package": "SMD,P=1.25mm,Surface Mount，Right Angle",
+      "description": "-25℃~+85℃ 1 1.25mm 15 15P 1A 1x15P 22mm 4.13mm 4.25mm 50V Auxiliary Solder Pin GH PA9T Phosphor bronze Surface Mount, Right Angle Tin UL94V-0 White SMD,P=1.25mm,卧贴 Wire To Board Connector ROHS",
+      "warehouse_stock": 13350,
+      "available_order_quantity": 13220,
+      "component_status": "yes",
+      "assembly_process": "SMT",
+      "minimum_purchase": 1,
+      "attrition_quantity": 0,
+      "checked_at": "2026-10-30T15:29:52.616268+00:00",
+      "source_url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C265027"
+    },
+    {
+      "code": "C148011",
+      "mpn": "MCP23008-E/SS",
+      "refs": [
+        "U1"
+      ],
+      "package": "SSOP-20-208mil",
+      "description": "1.7MHz 8 I2C Interrupt Output Reset function、Cascading and address extension SSOP-20-208mil I/O Expanders ROHS",
+      "warehouse_stock": 166,
+      "available_order_quantity": 143,
+      "component_status": "yes",
+      "assembly_process": "SMT",
+      "minimum_purchase": 1,
+      "attrition_quantity": 0,
+      "checked_at": "2026-10-30T15:29:55.215915+00:00",
+      "source_url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C148011"
+    },
+    {
+      "code": "C37593",
+      "mpn": "ADS1115IDGSR",
+      "refs": [
+        "U2"
+      ],
+      "package": "VSSOP-10",
+      "description": "-40℃~+125℃ 16 1LSB 2 2.048V 2V~5.5V 500nA 860Hz 8Hz、16Hz、32Hz、64Hz、128Hz、250Hz、475Hz、860Hz Built-in Built-in I2C Sigma-Delta Support Yes VSSOP-10 Analog to Digital Converters (ADC) ROHS",
+      "warehouse_stock": 15976,
+      "available_order_quantity": 12069,
+      "component_status": "yes",
+      "assembly_process": "SMT",
+      "minimum_purchase": 1,
+      "attrition_quantity": 0,
+      "checked_at": "2026-10-30T15:29:58.060521+00:00",
+      "source_url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C37593"
+    },
+    {
+      "code": "C2866750",
+      "mpn": "TMUX1511PWR",
+      "refs": [
+        "U3"
+      ],
+      "package": "TSSOP-14",
+      "description": "-40℃~+125℃ 1.5V~5.5V 1:1 3.3pF 3GHz 4 4.5Ω 4us 60us Bidirectional analog channel、Power-off isolation、Fail-safe disconnect TSSOP-14 Analog Switches, Multiplexers ROHS",
+      "warehouse_stock": 2361,
+      "available_order_quantity": 2006,
+      "component_status": "yes",
+      "assembly_process": "SMT",
+      "minimum_purchase": 1,
+      "attrition_quantity": 0,
+      "checked_at": "2026-10-30T15:30:00.950566+00:00",
+      "source_url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C2866750"
+    },
+    {
+      "code": "C2861006",
+      "mpn": "TLV809EA29DCKR",
+      "refs": [
+        "U4"
+      ],
+      "package": "SC-70-3",
+      "description": "-40℃~+125℃@(TJ) 1 1.7V~6V 130ms 2.93V 250nA Active Low Push-pull Simple Reset/Power-On Reset SC-70-3 Supervisor and Reset ICs ROHS",
+      "warehouse_stock": 20,
+      "available_order_quantity": 20,
+      "component_status": "yes",
+      "assembly_process": "SMT",
+      "minimum_purchase": 1,
+      "attrition_quantity": 0,
+      "checked_at": "2026-10-30T15:30:03.754315+00:00",
+      "source_url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C2861006"
+    },
+    {
+      "code": "C95204",
+      "mpn": "RT0603BRD0710KL",
+      "refs": [
+        "R12",
+        "R13",
+        "R16",
+        "R17",
+        "R21",
+        "R25"
+      ],
+      "package": "0603",
+      "description": "-55℃~+155℃ 100mW 10kΩ 75V Thin Film Resistor ±0.1% ±25ppm/℃ 0603 Chip Resistor - Surface Mount ROHS",
+      "warehouse_stock": 1817847,
+      "available_order_quantity": 1113119,
+      "component_status": "yes",
+      "assembly_process": "SMT",
+      "minimum_purchase": 1,
+      "attrition_quantity": 10,
+      "checked_at": "2026-10-30T15:30:06.397511+00:00",
+      "source_url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C95204"
+    },
+    {
+      "code": "C723637",
+      "mpn": "RT0603BRD0720KL",
+      "refs": [
+        "R20"
+      ],
+      "package": "0603",
+      "description": "-55℃~+155℃ 100mW 20kΩ 75V Thin Film Resistor ±0.1% ±25ppm/℃ 0603 Chip Resistor - Surface Mount ROHS",
+      "warehouse_stock": 44866,
+      "available_order_quantity": 489,
+      "component_status": "yes",
+      "assembly_process": "SMT",
+      "minimum_purchase": 1,
+      "attrition_quantity": 8,
+      "checked_at": "2026-10-30T15:30:07.939467+00:00",
+      "source_url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C723637"
+    },
+    {
+      "code": "C705793",
+      "mpn": "RT0603BRD0768KL",
+      "refs": [
+        "R24"
+      ],
+      "package": "0603",
+      "description": "-55℃~+155℃ 100mW 68kΩ 75V Thin Film Resistor ±0.1% ±25ppm/℃ 0603 Chip Resistor - Surface Mount ROHS",
+      "warehouse_stock": 23533,
+      "available_order_quantity": 15893,
+      "component_status": "yes",
+      "assembly_process": "SMT",
+      "minimum_purchase": 1,
+      "attrition_quantity": 8,
+      "checked_at": "2026-10-30T15:30:09.644816+00:00",
+      "source_url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C705793"
+    },
+    {
+      "code": "C110776",
+      "mpn": "RT0603BRD071KL",
+      "refs": [
+        "R14",
+        "R18",
+        "R22",
+        "R26"
+      ],
+      "package": "0603",
+      "description": "-55℃~+155℃ 100mW 1kΩ 75V Thin Film Resistor ±0.1% ±25ppm/℃ 0603 Chip Resistor - Surface Mount ROHS",
+      "warehouse_stock": 1544110,
+      "available_order_quantity": 1326219,
+      "component_status": "yes",
+      "assembly_process": "SMT",
+      "minimum_purchase": 1,
+      "attrition_quantity": 8,
+      "checked_at": "2026-10-30T15:30:11.253020+00:00",
+      "source_url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C110776"
+    },
+    {
+      "code": "C122538",
+      "mpn": "RT0603BRD07100KL",
+      "refs": [
+        "R15",
+        "R19",
+        "R23",
+        "R27"
+      ],
+      "package": "0603",
+      "description": "-55℃~+155℃ 100kΩ 100mW 75V Thin Film Resistor ±0.1% ±25ppm/℃ 0603 Chip Resistor - Surface Mount ROHS",
+      "warehouse_stock": 1329823,
+      "available_order_quantity": 1194123,
+      "component_status": "yes",
+      "assembly_process": "SMT",
+      "minimum_purchase": 1,
+      "attrition_quantity": 8,
+      "checked_at": "2026-10-30T15:30:12.715886+00:00",
+      "source_url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C122538"
+    },
+    {
+      "code": "C1591",
+      "mpn": "CL10B104KB8NNNC",
+      "refs": [
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8",
+        "C9",
+        "C10"
+      ],
+      "package": "0603",
+      "description": "100nF 50V X7R ±10% 0603 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS",
+      "warehouse_stock": 4129318,
+      "available_order_quantity": 3664061,
+      "component_status": "yes",
+      "assembly_process": "SMT",
+      "minimum_purchase": 1,
+      "attrition_quantity": 14,
+      "checked_at": "2026-10-30T15:30:14.224209+00:00",
+      "source_url": "https://jlcpcb.com/api/overseas-pcb-order/v1/smtComponentShopCart/getComponentDetail?componentCode=C1591"
+    }
+  ]
+}

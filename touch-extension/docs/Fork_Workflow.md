@@ -74,7 +74,7 @@ Der [HMX-Actions-Lauf 40380596372](https://github.com/ralf-e/HeishaMon/actions/r
 
 Das ist weiterhin eine bewusst überprüfte Übernahme. Offizielle Updates werden nicht unbeaufsichtigt in eine Firmware für die Wärmepumpe eingebaut. Da die offiziellen Quelldateien im Erweiterungsbranch unverändert bleiben, entstehen dort gewöhnlich keine Display-Mergekonflikte; Änderungen der Integrationspunkte werden beim Erzeugen erkannt.
 
-Die Modellzuordnung hat einen eigenen dokumentierten Tabellenstand. Aktualisierung mit `tools/update_model_table.py --commit VOLLSTAENDIGER_GEPRUEFTER_COMMIT`, danach `--check`, neu vorbereiten und neu bauen. Ein neuer HeishaMon-Basiscommit aktualisiert die Modelltabellendaten nicht automatisch.
+Bei jedem hier beauftragten HeishaMon-Update gehört die Prüfung und Übernahme neuer oder korrigierter Modellzuordnungen zum Auftrag; dafür ist keine zusätzliche Anweisung erforderlich. Die Modellzuordnung hat technisch einen eigenen dokumentierten Tabellenstand. Den Modellquellen-Snapshot aus dem geprüften Upstream-Stand aktualisieren, mit `tools/update_model_table.py --commit VOLLSTAENDIGER_GEPRUEFTER_COMMIT` neu erzeugen, danach `--check` ausführen, den Sketch neu vorbereiten und bauen. Ein neuer HeishaMon-Basiscommit allein aktualisiert die Modelltabellendaten nicht automatisch; dieser zusätzliche Arbeitsschritt ist deshalb fester Bestandteil des Updateablaufs.
 
 ## Prüfumfang und Lizenz
 

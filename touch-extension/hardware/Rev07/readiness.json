@@ -1,0 +1,19 @@
+{
+  "revision": "0.7",
+  "design_review_passed": true,
+  "physical_hardware_tested": false,
+  "stock_snapshot_verified": true,
+  "rotation_library_verified": true,
+  "assembler_preview_verified": false,
+  "manual_stack_connector_part_selected": false,
+  "real_v6_pinout_verified": false,
+  "real_v6_stack_fit_verified": false,
+  "firmware_adc_support": false,
+  "manufacturing_release": false,
+  "remaining_before_order": [
+    "order-specific assembler preview and centering",
+    "real V6 contact/geometry verification",
+    "select stack headers using measured heights"
+  ],
+  "prototype_validation": "Bench test table in Bestellpruefung.md; all physical results pending"
+}

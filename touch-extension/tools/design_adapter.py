@@ -3,9 +3,12 @@ Run with KiCad's Python (pcbnew). Connector geometry is a vendor-reference draft
 No Gerbers are generated: V6 mechanics and routing still require validation.
 """
 from pathlib import Path
-import json,re,uuid,math,copy
+import json,re,uuid,math,copy,sys
 import pcbnew as pcb
-ROOT=Path(__file__).resolve().parents[1];OUT=ROOT/"hardware";OUT.mkdir(exist_ok=True)
+ROOT=Path(__file__).resolve().parents[1]
+VOLTAGE='--voltage' in sys.argv
+OUT=ROOT/"hardware"/"Rev07" if VOLTAGE else ROOT/"hardware"
+OUT.mkdir(parents=True,exist_ok=True)
 LIB=Path("C:/Program Files/KiCad/10.0/share/kicad")
 class Q(str):pass
 def parse(s):
@@ -38,12 +41,32 @@ def effects(size=1.0,justify=None,hide=False):
  if justify:e.append(["justify",justify])
  if hide:e.append(["hide","yes"])
  return e
+def voltage_annotations(sch):
+ existing={str(v[1]) for v in children(sch,'text')}
+ for title,x1,y1,x2,y2 in [('9  Spannungsmessung / ADC / Isolation',420,28,582,250),('10  12V-Messanschluss, kein Versorgungseingang',420,252,582,280),('11  Vier Messkanaele / Teiler und Filter',10,280,450,410)]:
+  if title in existing:continue
+  sch.append(['rectangle',['start',x1,y1],['end',x2,y2],['stroke',['width',.254],['type','default']],['fill',['type','none']],['uuid',Q(uid())]])
+  sch.append(['text',Q(title),['at',x1+3,y1+5,0],effects(1.5,'left'),['uuid',Q(uid())]])
+ sch[:]=[v for v in sch if not (isinstance(v,list) and v and v[0]=='text' and str(v[1]) in ['V6-Belegung / Hoehen / Stromreserve praktisch pruefen.','Keine Fertigungsfreigabe ohne Hardwarepruefung.'])]
+ notes=[('GP0 = ADC_ENABLE: Low -> Messwerte ungueltig.',423,239),('AIN0 V6 3V3 / AIN1 EXT 3V3 / AIN2 5V / AIN3 12V',423,244),('Keine Fertigungsfreigabe; Passform und Hardwaretest ausstehend.',455,292),('12V nur Messleitung, positive Spannung 0..18V gegen GND.',455,299)]
+ for label,x,y in notes:
+  if label not in existing:sch.append(['text',Q(label),['at',x,y,0],effects(1.27,'left'),['uuid',Q(uid())]])
+
 cache={}
 def symbol(lib,name):
  key=lib+":"+name
  if key not in cache:
   tree=parse((LIB/"symbols"/(lib+".kicad_sym")).read_text(encoding="utf8"))
   value=next(i for i in children(tree,"symbol") if i[1]==name)
+  parent=child(value,'extends')
+  if parent:
+   _,base=symbol(lib,str(parent[1]))
+   inherited=copy.deepcopy(base);inherited[1]=Q(name)
+   for item in children(inherited,'symbol'):item[1]=Q(str(item[1]).replace(str(parent[1]),name))
+   for prop in children(value,'property'):
+    inherited=[v for v in inherited if not (isinstance(v,list) and len(v)>1 and v[0]=='property' and v[1]==prop[1])]
+    inherited.append(copy.deepcopy(prop))
+   value=inherited
   cache[key]=copy.deepcopy(value)
  return key,copy.deepcopy(cache[key])
 def getpins(sym):
@@ -129,6 +152,8 @@ for c in comps:
  if c['ref'] in sch_positions:c['at']=sch_positions[c['ref']]
  if c['ref'] in short_values:c['value']=short_values[c['ref']]
  c['schrot']=90 if c['ref'] in ['R8','R9'] else 0
+if VOLTAGE:
+ exec(compile((ROOT/'tools/voltage_monitor_design.py').read_text(encoding='utf8'),'voltage_monitor_design.py','exec'),globals())
 # One complete schematic sheet: labels connect every instance of a named net.
 schid=uid()
 sch=["kicad_sch",["version",20250114],["generator",Q("eeschema")],["uuid",Q(schid)],["paper",Q("A3")],
@@ -136,6 +161,9 @@ sch=["kicad_sch",["version",20250114],["generator",Q("eeschema")],["uuid",Q(schi
  ["comment",1,Q("3V3 aus V6; kein Zusatzregler; V6-Steckerpositionen und Reserve pruefen")],
  ["comment",2,Q("J1/J2: USR-ES1 Herstellerreferenz; Raster 2.54, Reihenabstand 20.32 mm")],
  ["comment",3,Q("Keine Fertigungsfreigabe. V6-Mechanik und Stromreserve sind noch nicht bestaetigt.")]]]
+if VOLTAGE:
+ child(sch,'paper')[1]=Q('A2')
+ child(child(sch,'title_block'),'rev')[1]=Q('0.7 DRAFT')
 libs=["lib_symbols"]
 for key,orig in cache.items():
  if key not in {c["lib_id"] for c in comps}:continue
@@ -181,6 +209,11 @@ for c in comps:
    prop[-1]=effects(1.0 if prop[1]=="Reference" else .85)
   elif c["ref"]=="U1":
    child(prop,"at")[1:]=[x,y-30 if prop[1]=="Reference" else y-27,0]
+  elif c['ref'] in ['U2','U3','U4']:
+   libprop=next(v for v in children(c['symbol'],'property') if v[1]==prop[1])
+   at=child(libprop,'at')
+   child(prop,'at')[1:]=[x+at[1],y-at[2],0]
+   prop[-1]=effects(1.27 if prop[1]=='Reference' else 1.1)
  sch.append(instance)
 # Power flags are explicit declarations of external power supplied by V6.
 key,pflag=symbol("power","PWR_FLAG");pf=copy.deepcopy(pflag);pf[1]=Q(key);libs.append(pf)
@@ -217,6 +250,7 @@ for text,x,y,size in [
  ('V6-Belegung / Hoehen / Stromreserve praktisch pruefen.',12,278,1.0),
  ('Keine Fertigungsfreigabe ohne Hardwarepruefung.',12,284,1.0)]:
  sch.append(['text',Q(text),['at',x,y,0],effects(max(size,1.27),'left'),['uuid',Q(uid())]])
+if VOLTAGE:voltage_annotations(sch)
 schpath=OUT/"HeishaMon_V6_Touch_Adapter.kicad_sch"
 schpath.write_text(emit(sch)+"\n",encoding="utf8")
 # PCB: compact two-layer component placement, deliberately unrouted.
@@ -234,7 +268,10 @@ for c in comps:
  if not fp:raise RuntimeError("Missing footprint "+c["footprint"])
  fp.SetReference(c["ref"]);fp.SetValue(c["value"])
  fp.SetPath(pcb.KIID_PATH("/"+schid+"/"+c["uuid"])) if hasattr(pcb,"KIID_PATH") else None
- fp.SetPosition(pcb.VECTOR2I(pcb.FromMM(c["boardat"][0]),pcb.FromMM(c["boardat"][1])))
+ # Round Rev07 coordinates to integer nanometres; SWIG FromMM truncates some
+ # decimal floats by 1 nm, while the DSN/SES round trip rounds them back.
+ if VOLTAGE:fp.SetPosition(pcb.VECTOR2I(int(round(c['boardat'][0]*1000000)),int(round(c['boardat'][1]*1000000))))
+ else:fp.SetPosition(pcb.VECTOR2I(pcb.FromMM(c["boardat"][0]),pcb.FromMM(c["boardat"][1])))
  fp.SetOrientationDegrees(c["rot"])
 
  fp.Reference().SetTextSize(pcb.VECTOR2I(pcb.FromMM(1.0),pcb.FromMM(1.0)))
@@ -262,14 +299,14 @@ for (x1,y1),(x2,y2) in zip(outline,outline[1:]+outline[:1]):
  edge=pcb.PCB_SHAPE();edge.SetShape(pcb.SHAPE_T_SEGMENT);edge.SetStart(pcb.VECTOR2I(pcb.FromMM(x1),pcb.FromMM(y1)));edge.SetEnd(pcb.VECTOR2I(pcb.FromMM(x2),pcb.FromMM(y2)));edge.SetLayer(pcb.Edge_Cuts);edge.SetWidth(pcb.FromMM(.05));board.Add(edge)
 def boardtext(text,x,y,size=.8,layer=pcb.F_SilkS):
  t=pcb.PCB_TEXT(board);t.SetText(text);t.SetPosition(pcb.VECTOR2I(pcb.FromMM(x),pcb.FromMM(y)));size=max(size,1.0);t.SetTextSize(pcb.VECTOR2I(pcb.FromMM(size),pcb.FromMM(size)));t.SetTextThickness(pcb.FromMM(.12));t.SetLayer(layer);board.Add(t)
-boardtext("HMX R06",110.16,122,1)
-boardtext("SMD UNTEN",110.16,130,1)
+if not VOLTAGE:boardtext("HMX R06",110.16,122,1)
+if not VOLTAGE:boardtext("SMD UNTEN",110.16,130,1)
 boardtext("180 DEG FLIP / V6 FIT UNVERIFIED",110,139,1,pcb.Cmts_User)
 # Back silkscreen is readable from the header side after the physical flip.
 def backtext(label,x,y,size=.8):
  t=pcb.PCB_TEXT(board);t.SetText(label);t.SetPosition(pcb.VECTOR2I(pcb.FromMM(x),pcb.FromMM(y)));t.SetTextSize(pcb.VECTOR2I(pcb.FromMM(size),pcb.FromMM(size)));t.SetTextThickness(pcb.FromMM(.12));t.SetLayer(pcb.B_SilkS);t.SetMirrored(True);board.Add(t)
-backtext("HMX V6 R06 / OBEN",110.16,95.9,.85)
-backtext("GPIO",112,134.7,1)
+backtext("HMX V6 R07 / OBEN" if VOLTAGE else "HMX V6 R06 / OBEN",110.16,95.9,.85)
+if not VOLTAGE:backtext("GPIO",112,134.7,1)
 backtext("TOUCH MODE",110.16,112.5,1)
 backtext("1",115,123.7,1)
 backtext("LCD RECHTS UNTEN",110.16,117,0.8)
@@ -281,9 +318,19 @@ backtext("7+5V 8GND",110.16,109.5,1)
 # Module outline in the SMD-view coordinate system; the two rows are reflected.
 for xa,ya,xb,yb in [(98.66,94.3,121.66,94.3),(121.66,94.3,121.66,120.5),(121.66,120.5,98.66,120.5),(98.66,120.5,98.66,94.3)]:
  sh=pcb.PCB_SHAPE();sh.SetShape(pcb.SHAPE_T_SEGMENT);sh.SetStart(pcb.VECTOR2I(pcb.FromMM(xa),pcb.FromMM(ya)));sh.SetEnd(pcb.VECTOR2I(pcb.FromMM(xb),pcb.FromMM(yb)));sh.SetLayer(pcb.Dwgs_User);sh.SetWidth(pcb.FromMM(.1));board.Add(sh)
+if VOLTAGE:
+ for text in board.GetDrawings():
+  if isinstance(text,pcb.PCB_TEXT) and text.GetLayer()==pcb.F_SilkS:text.SetLayer(pcb.F_Fab)
+ for c in comps:
+  if c['ref'] in ['TP5','TP6']:
+   x,y=c['boardat'];backtext('+12V' if c['ref']=='TP5' else 'GND',x,y-1.7,.8)
+ (OUT/'HeishaMon_V6_Touch_Adapter.kicad_dru').write_text((ROOT/'hardware/HeishaMon_V6_Touch_Adapter.kicad_dru').read_text().replace('track_width (min 0.2mm)','track_width (min 0.15mm)').replace('clearance (min 0.2mm)','clearance (min 0.15mm)').replace('hole_size (min 0.3mm)','hole_size (min 0.2mm)'))
 pcb.SaveBoard(str(OUT/"HeishaMon_V6_Touch_Adapter.kicad_pcb"),board)
 (OUT/"HeishaMon_V6_Touch_Adapter.kicad_pro").write_text(json.dumps({"meta":{"version":1},"board":{},"schematic":{},"net_settings":{"meta":{"version":3}}},indent=2))
 (OUT/"fp-lib-table").write_text('(fp_lib_table (version 7))\n')
 manifest=[{k:v for k,v in c.items() if k not in ["symbol","uuid"]} for c in comps]
 (OUT/"netlist_design.json").write_text(json.dumps({"board_mm":[23,41],"layout_revision":"0.6","mounting":"F underside, B headers on top; physical flip about Y","mounted_transform":"x_mounted=220.32-x_smd; y_mounted=y_smd+2.5","side_header_policy":"23mm width; V6 2x5 location still unverified","layers":2,"status":"PLACEMENT; NOT ROUTED; MECHANICS UNVERIFIED","vendor_reference":"USR-ES1 2x6 rows; 2.54 pitch; row spacing 20.32mm","components":manifest},indent=2),encoding="utf8")
 print("Generated",len(comps),"components;",len(netnames),"nets; KiCad schematic + placement draft")
+if VOLTAGE:
+ meta=json.loads((OUT/'netlist_design.json').read_text());meta['layout_revision']='0.7';meta['measurement']=measurement_spec
+ (OUT/'netlist_design.json').write_text(json.dumps(meta,indent=2),encoding='utf8')
